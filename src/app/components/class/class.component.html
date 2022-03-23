@@ -1,0 +1,32 @@
+<br>
+  <button class="search-btn" style="float:left;" (click) = "AjoutClass()">Programmer un cours</button>
+  <div class="container">
+    <button  style="float:left;" (click) = "voirCart()">voir les adresse des cours </button>
+    <div class="row" >
+      <ng-container *ngFor="let cours of classList">
+         <ul class="list-group" (click)="ParticiperCours(cours.userId,cours.id)">
+            <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}" style="cursor:pointer">
+              <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6DD8_69DUE9kyFEf3r1guXB87Bx6edPMYUg&usqp=CAU" alt="" style="width: 10%; float:left;">
+              <div style="float : left;margin-left:25%;">
+                <h2 style="color: cornflowerblue;">{{cours.name}}</h2>
+                <!-- <p> {{cours.description}}</p>
+                <p>{{ cours.startDate}} </p> -->
+               <!-- <google-map></google-map> -->
+                <a href="">voir l'emplacement </a>
+              </div>
+             <!-- <button style="
+             margin-top: 3%;
+             margin-bottom:  3%;
+             float : right;
+             background: #f32f2f;
+             color : #fff;
+             text-transform:capitalize ;
+             font-size: 30px; " class="btn btn-success " (click)="ParticiperCours(cours.userId,cours.id)">Participer</button> -->
+            </li>
+          </ul>
+        </ng-container>
+    </div>
+  </div>
+
+
+

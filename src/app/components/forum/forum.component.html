@@ -1,0 +1,19 @@
+  <br>
+  <div>
+    <ul class="u">
+      <h1 style="float : left;font-size: 30px;"><span>Toutes les questions</span></h1>
+      <button style="float : right; font-size: 20px;" class="btn btn-primary" (click)="onQuiz()">Poser une question</button>
+    </ul>
+    </div>
+    <br><br><br>
+    <div class="container">
+    <div class="row">
+      <ng-container *ngFor="let frum of ForumList">
+         <ul class="list-group" (click)="getUrl(frum.id)">
+            <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}">
+              <h1 style="float : left;">{{frum.title}}</h1>
+              <p style="float : right;" >{{frum.startDate | date: 'longDate'}}</p>
+          </li></ul>
+        </ng-container>
+    </div>
+  </div>

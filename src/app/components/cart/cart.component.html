@@ -1,0 +1,50 @@
+<ng-container *ngIf="products.length !=0 && !isEmptyCart">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                          <th scope="col">Nom</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Prix</th>
+                          <th scope="col">Catégorie</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let produit of products">
+                            <td>{{ produit.name }}</td>
+                            <td style="width: 12%;">{{produit.description}}</td>
+                            <th style="width: 12%;">{{produit.prix}}</th>
+                            <td style="width: 12%;">{{getCategory(produit.categoryCode)}}</td>
+                            <td>
+                                <button (click)="removeItem(produit.id,4)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td><button  (click)="openProducts()" class="btn btn-primary">Voir plus</button></td>
+                            <td><strong> Total: {{grandTotal}} EUR </strong></td>
+                            <td><button class="btn btn-success">Acheter</button></td>
+                            <td><button (click)="emptycart()" class="btn btn-danger">Supprimer tous</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="products?.length == 0 || isEmptyCart">
+  <div class="container">
+      <div class="card">
+          <h5 class="card-title">Mon panier</h5>
+      </div>
+      <div class="center">
+          <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+          <h4>Votre panier est vide!</h4>
+          <h6>Ajouter un produit maintenant</h6>
+          <button (click)="openProducts()" class="btn btn-primary">Revoir les offres maintenant</button>
+      </div>
+  </div>
+</ng-container>

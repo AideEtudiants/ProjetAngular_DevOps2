@@ -1,0 +1,86 @@
+/*en-tete*/
+header {
+    background: #87c8d1;
+    width: auto;
+}
+
+/*container*/
+.page-wrap {
+    background: #fff;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    -khtml-box-shadow: 0 0 6px #ccc;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -ms-box-shadow: 0 0 6px #ccc;
+    -o-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+}
+
+.container {
+     width: 1170px;
+     padding-right: 15px;
+     padding-left: 15px;
+     margin-right: auto;
+     margin-left: auto;
+     box-shadow: 0 0 6px rgb(133, 165, 101);
+}
+
+/*logo*/
+#logo {
+    width: 300px;
+    margin-right: 1em;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*menu*/
+.list-group{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    font: inherit;
+    font-size: 130%;
+
+}
+
+li:hover a{
+  color: rgb(37, 66, 128);
+}
+
+li {
+    display: inline;
+}
+
+li a {
+	text-align: left;
+    text-decoration: none;
+    color: rgb(10, 73, 247);
+    size: 60%;
+
+}
+
+
+textarea {
+    width: 500px;
+    height: 120px;
+  }
+
+  input{
+    width: 400px;
+    height: 30px;
+  }
+
+  .caroussel img {
+    width: 500px;
+    height: 350px;
+}
+
+.pp a{
+    font-size: 130%;
+}
+
+.u{
+    padding-left: 2%;
+    padding-right: 2%;
+}

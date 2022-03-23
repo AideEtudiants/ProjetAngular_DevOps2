@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <br>
+    <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
+    <br>
+    <br>
+    <br>
+    <ul class = "ul">
+      <li class= "deroulant">
+        <mat-label >Catégorie</mat-label><br>
+        <mat-select [(value)]="p.categoryCode" name="field4" class="field-select">
+          <mat-option value="1">Livre</mat-option>
+          <mat-option value="2">Equipement</mat-option>
+          <mat-option value="3">Autre</mat-option>
+        </mat-select>
+      </li>
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Statuts</mat-label><br>
+        <mat-select [(value)]="p.statusCode" name="field4" class="field-select">
+          <mat-option value="1">Tout neuf</mat-option>
+          <mat-option value="2">Recondition en bon etat</mat-option>
+        </mat-select>
+      </li>
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Diponibilité</mat-label><br>
+        <mat-select [(value)]="p.availability" name="field4" class="field-select">
+          <mat-option value="1">Disponible</mat-option>
+          <mat-option value="2">Reservé</mat-option>
+          <mat-option value="3">Indisponible</mat-option>
+        </mat-select>
+      </li>
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Date de création</mat-label><br>
+        <mat-select [(value)]="p.startDate" name="field4" class="field-select">
+          <mat-option value="1"> Il y a jour</mat-option>
+          <mat-option value="2"> Il y a semaine</mat-option>
+          <mat-option value="3"> Il y a un mois</mat-option>
+        </mat-select>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <button class="search-btn"
+     style="float:left; margin-left:0%;margin-top: 0px;"
+     (click) = "filterProductBy(p.categoryCode,p.statusCode,p.availability,0)"
+     >
+     Filter
+    </button>
+    <!--  -->
+    <br>
+  </div>
+</div>
+
+<div *ngIf="!filter">
+<div class="row">
+      <ng-container *ngFor="let item of productList">
+          <div class="card col-md-3">
+              <img src="{{item.image}}" alt="">
+              <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Prix: </strong>{{item.price}}€</p>
+            <!-- <p><strong>Quantité:</strong>{{item.quantity}}</p> -->
+              <p><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
+            <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
+          </div>
+      </ng-container>
+  </div>
+  </div>
+  <div *ngIf="filter">
+    <div class="row">
+          <ng-container *ngFor="let item of productFiltredList">
+              <div class="card col-md-3">
+                  <img src="{{item.image}}" alt="">
+                  <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Prix: </strong>{{item.price}}€</p>
+                <!-- <p class="item-amount mt-4"><strong>Quantité:</strong>{{item.quantity}}</p> -->
+                  <p class="item-amount mt-4"><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
+                <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
+              </div>
+          </ng-container>
+      </div>
+    </div>
+  <div class="row"*ngIf="filter">
+    <ng-container *ngFor="let item of elementTrouve">
+      <div class="card col-md-3">
+        <img src="{{item.image}}" alt="">
+        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Prix: </strong>{{item.price}}€ </p>
+        <!-- <p class="item-amount mt-4"><strong>Quantité:</strong>{{item.quantity}}</p> -->
+        <p class="item-amount mt-4"><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
+        <button class="btn btn-primary" (click)="addtocart(item)" >Ajouter au panier</button>
+      </div>
+    </ng-container>
+  </div>

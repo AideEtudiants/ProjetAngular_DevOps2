@@ -1,0 +1,7 @@
+<p>Organisateur : {{name}} </p>
+<p [mat-dialog-close]="nbrParticipants">Nombre de participants :{{nbrParticipants}}</p>
+<p>Description: {{data?.description}} </p>
+<p>Heure de début : {{data?.startDate}} </p>
+<p>lieux de rendez-vous : {{data?.address}} </p>
+<button class="btn btn-secondary"(click)="onNoClick()">Annuler</button>
+<button class="btn btn-primary" style="float:right;"  [mat-dialog-close]="data" cdkFocusInitial>Participer</button>

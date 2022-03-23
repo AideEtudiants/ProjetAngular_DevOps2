@@ -1,0 +1,33 @@
+<app-barre-de-recherche></app-barre-de-recherche>
+
+<br>
+
+<div class="container page-wrap">
+  <br>
+  <h1 align="center">Forum Studenity</h1>
+
+  <p align="center">Saisir votre question</p>
+
+  <div align="center">
+  <input [(ngModel)]="forum.title" class="form-control" type="text"placeholder="Ma question" [ngModelOptions]="{standalone: true}">
+</div><br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div align="center">
+        <textarea [(ngModel)]="forum.description" class="form-control h-25" rows="5" placeholder="Détails" required [ngModelOptions]="{standalone: true}"></textarea>
+      </div><br>
+        <!-- <div align="center">
+          <input [(ngModel)]="forum.startDate" class="form-control" type="date" [ngModelOptions]="{standalone: true}">
+        </div> -->
+        <br>
+       <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
+      <div align="center">
+        <button class="btn btn-primary" (click)="addForum()">Soumettre</button>
+        <button class="btn btn-secondary" style="float:right;" (click)="onNoClick()">Annuler</button>
+    </div>
+    <br>
+  </div>
+</div>
+
+</div>
+

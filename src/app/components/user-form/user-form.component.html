@@ -1,0 +1,66 @@
+<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Créer votre compte</h2>
+
+              <form (ngSubmit)="onSubmit()">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Nom"/>
+                </div>
+                <div class="form-outline mb-4"> 
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Prenom"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <!--[(ngModel)]="user.email"-->
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email"/>
+                 
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password"/>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="date" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Date de naissance"/>
+          
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Niveau d'étude"/>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Certificat de scolarité"/>
+                </div>
+                <div class="form-outline mb-4">
+                  <div class="form-outline mb-4">
+                    <!--[(ngModel)]="user.establishment"-->
+                    <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Etablissement"/>
+                  </div>
+                  <div class="form-outline mb-4">
+                  Photo
+                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg"/>
+                </div>
+                 
+
+                <div class="d-flex justify-content-center">
+                  <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  <button type="submit" class="btn btn-info">S'inscrire</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Vous avez déjà un compte? <a href="login" class="fw-bold text-body"><u>Connectez vous</u></a></p>
+</div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

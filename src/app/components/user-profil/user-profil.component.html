@@ -1,0 +1,52 @@
+<app-barre-de-recherche></app-barre-de-recherche>
+
+<br>
+
+<div class="container">
+
+  <h1 class="center">Votre profil<span role="img" aria-label="Clipboard"> 📋</span></h1>
+  <div class="container2">
+    <ng-container >
+        <p><strong>Nom: </strong>{{user.lastName}}</p>
+        <p><strong>Prenom: </strong>{{user.firstName}}</p>
+        <p><strong>Email: </strong>{{user.email}}</p>
+        <p><strong>Date de naissance: </strong>{{user.birthDate}}</p>
+        <p><strong>Année d'étude: </strong>{{user.studyLevel}}</p>
+        <p><strong>Etablissement: </strong>{{user.establishment}}</p>
+      <p><strong>Certificate: </strong>{{user.certificateRegist}}</p>
+    </ng-container>
+  </div>
+
+  <div class="container1">
+      <img id="photo" src="{{user.photo}}" alt="">
+  </div>
+
+
+
+  <div class="container3">
+    <h1 class="center2">Offres déposées </h1><br>
+    <ng-container *ngFor="let product of products" >
+      <p>
+      <!-- <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button> -->
+        <button class="btn btn-danger" (click)="deleteProduct(product)">Supprimer</button>
+
+        <strong> Nom du produit: </strong>{{product.name}}
+        <strong> Description: </strong>{{product.description}}
+      </p>
+    </ng-container>
+  </div><br>
+
+  <div class="container3">
+    <h1 class="center2">Cours mis en ligne </h1><br>
+    <ng-container *ngFor="let clas of class">
+      <p>
+        <!-- <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> -->
+        <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
+        <strong>Nom du cours: </strong>{{clas.name}}
+        <strong> Description: </strong>{{clas.description}}
+        <strong>Date de début: </strong>{{clas.startDate}}
+      </p>
+    </ng-container>
+  </div>
+
+</div>

@@ -1,0 +1,198 @@
+<form>
+  <ul class="form-style-1">
+
+    <h1 mat-dialog-title>Ajouter un nouveau produit</h1>
+
+
+    <!--<mat-label>Nom <span class="required">*</span> </mat-label>
+    <input placeholder="Nom" [(ngModel)]="data.name" name="nom"><br>-->
+    <li>
+      <mat-label>Nom <span class="required">*</span></mat-label><br>
+      <input [(ngModel)]="data.name" type="text" name="field1" class="field-divided" placeholder="Nom" />
+    </li>
+
+    <mat-label>Prix du produit <span class="required">*</span> </mat-label>
+    <input type="number" laceholder="Prix" matInput [(ngModel)]="data.price" name="prix"><br>
+
+    <!--<mat-label>Description <span class="required">*</span></mat-label>
+    <input type="float" [(ngModel)]="data.description" name="desc"><br>-->
+
+    <li>
+      <mat-label>Description <span class="required">*</span></mat-label><br>
+      <textarea [(ngModel)]="data.description" name="field5" id="field5" class="field-long field-textarea"></textarea>
+    </li>
+
+    <!--<mat-label>Quantité <span class="required">*</span></mat-label>
+    <input type="number" [(ngModel)]="data.quantity" name="qte"><br>-->
+
+    <!--<mat-label>Categorie <span class="required">*</span></mat-label>
+    <mat-select [(value)]="data.categoryCode" name="cat">
+      <mat-option  value="1">Livre</mat-option >
+      <mat-option value="2">Equipement</mat-option >
+      <mat-option value="3">Autre</mat-option >
+    </mat-select>-->
+
+    <li>
+      <mat-label>Catégorie</mat-label><br>
+      <mat-select [(value)]="data.categoryCode" name="field4" class="field-select">
+        <mat-option value="1">Livre</mat-option>
+        <mat-option value="2">Equipement</mat-option>
+        <mat-option value="3">Autre</mat-option>
+      </mat-select>
+    </li>
+
+    <!--<mat-label>Statut <span class="required">*</span></mat-label>
+    <mat-select [(value)]="data.statusCode" name="stat">
+      <mat-option value="1">Neuf</mat-option>
+      <mat-option value="2">Reconditionné en bon état</mat-option>
+    </mat-select><br>-->
+
+    <li>
+      <mat-label>Statut</mat-label><br>
+      <mat-select [(value)]="data.statusCode" name="field5" class="field-select">
+        <mat-option value="1">Neuf</mat-option>
+        <mat-option value="2">Reconditionné en bon état</mat-option>
+      </mat-select>
+    </li>
+
+    <!--<mat-label>Image du produit <span class="required">*</span></mat-label>
+    <input [(ngModel)]="data.image" name="img"
+           type="file" (change)="onFileChanged($event)"
+           #fileInput><br>-->
+
+    <li>
+      <mat-label class="center">Image <span class="required">*</span></mat-label><br>
+      <input class="center" [(ngModel)]="data.image" (change)="onFileChanged($event)" #fileInput type="file" name="field3" class="field-long" />
+    </li>
+
+    <!--<div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Annuler</button>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+    </div>-->
+
+    <li>
+      <button class="btn btn-primary" (click)="onNoClick()">Annuler</button>
+      <button class="btn btn-success"style="float:right;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+    </li>
+
+  </ul>
+</form>
+
+<!--
+<style>
+.formAjout{
+  height: 600px;
+  background-color: white;
+}
+
+.champs{
+  width: 75%;
+}
+</style>-->
+
+<style type="text/css">
+.mat-dialog-title {
+  font-size: 24px;
+  margin: 0;
+  color: #fc0505;
+}
+.form-style-1 {
+  width  : 740px;
+  height : 550px;
+  margin : 0 auto;
+  position: relative;
+  z-index: 2;
+	padding: 30px 12px 10px 30px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: #fafafe;
+}
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+.form-style-1 input[type=text],
+.form-style-1 input[type=number],
+textarea,
+select{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border:1px solid #BEBEBE;
+	padding: 7px;
+	margin:0px;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+}
+.form-style-1 input[type=text]:focus,
+.form-style-1 input[type=number]:focus,
+.form-style-1 textarea:focus,
+.form-style-1 select:focus{
+	-moz-box-shadow: 0 0 8px #88D5E9;
+	-webkit-box-shadow: 0 0 8px #88D5E9;
+	box-shadow: 0 0 8px #88D5E9;
+	border: 1px solid #88D5E9;
+}
+.form-style-1 .field-divided{
+	width: 49%;
+}
+.form-style-1 .field-long{
+	width: 100%;
+}
+.form-style-1 .field-select{
+	width: 100%;
+}
+.form-style-1 .field-textarea{
+	height: 100px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+	background: #4B99AD;
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+	background: #4691A4;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+.form-style-1 .required{
+	color: #fc0505;
+}
+.centre {
+  text-align:center;
+}
+.button {
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 500;
+  margin: 25px 0 10px;
+  color: #fff;
+  /* background: linear-gradient($colorSecondary, $color);
+  box-shadow : 0 2px 12px -3px $color;
+  @include animation(btn 6.0s 3s infinite ease-in-out);
+  opacity: 0.9;
+  @include transition(all 0.3s)
+  &:hover
+    opacity: 1
+    box-shadow: 0 2px 2px -3px $color */
+}
+</style>
+
+

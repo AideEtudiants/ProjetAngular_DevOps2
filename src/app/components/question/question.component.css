@@ -1,0 +1,67 @@
+/*en-tete*/
+header {
+    background: #87c8d1;
+    width: auto;
+}
+
+/*container*/
+.page-wrap {
+    background: #fff;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    -khtml-box-shadow: 0 0 6px #ccc;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -ms-box-shadow: 0 0 6px #ccc;
+    -o-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+}
+
+.container {
+     width: 1170px;
+     padding-right: 15px;
+     padding-left: 15px;
+     margin-right: auto;
+     margin-left: auto;
+     box-shadow: 0 0 6px rgb(133, 165, 101);
+}
+
+/*logo*/
+#logo {
+    width: 300px;
+    margin-right: 1em;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*menu*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    border: 0;
+    font: inherit;
+    font-size: 130%;
+    text-align: center;
+}
+
+ul li:hover a{
+  color: white;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: inline-block;
+	  margin: 0 50px;
+    padding: 18px 20px;
+	  text-align: center;
+    text-decoration: none;
+    color: grey;
+}
+
+li a:hover:not(.active) {
+    background-color: red;
+}
