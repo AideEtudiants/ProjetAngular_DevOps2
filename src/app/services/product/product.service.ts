@@ -13,10 +13,10 @@ export class ProductService {
     return this.http.get<ProductEntity[]>("http://localhost:8080/product/all");
   }
   getProductById(idProduct: number):Observable<ProductEntity>{
-      return this.http.get<ProductEntity>(`http://localhost:8080/product/${idProduct}`);
+      return this.http.get<ProductEntity>("http://localhost:8080/product/${idProduct}");
   }
   RemoveProduct(idProduct:number):Observable<void>{
-    return this.http.delete<void>(`http://localhost:8080/product/delete/${idProduct}`);
+    return this.http.delete<void>("http://localhost:8080/product/delete/${idProduct}");
   }
   addProduct(newProduct:ProductEntity):Observable<ProductEntity>{
     return this.http.post<ProductEntity>("http://localhost:8080/product/create",newProduct);
@@ -33,7 +33,7 @@ export class ProductService {
     return this.http.post<ProductEntity[]>("http://localhost:8080/product/searchByCategory",idCategorie);
   }
   filterProduct(idCategorie:number,idStatus : number,idAvailability : number,idDate : number):Observable<ProductEntity[]>{
-    return this.http.get<ProductEntity[]>(`http://localhost:8080/product/search/${idCategorie}/${idStatus}/${idAvailability}/${idDate}`);
+    return this.http.get<ProductEntity[]>("http://localhost:8080/product/search/${idCategorie}/${idStatus}/${idAvailability}/${idDate}");
   }
 
 
