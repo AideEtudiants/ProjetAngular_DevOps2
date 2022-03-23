@@ -32,7 +32,7 @@ import { UpdateProduitComponent } from './components/update-produit/update-produ
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AnswerComponent } from './components/answer/answer.component';
-import { ConnexionComponent } from './connexion/connexion.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 
 const routes: Routes = [
