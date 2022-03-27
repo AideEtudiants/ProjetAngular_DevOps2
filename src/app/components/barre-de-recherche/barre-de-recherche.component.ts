@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,6 +22,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   data:any='';
   filteredOptions: Observable<string[]>;
   public totalItem : number ;
+  productList : ProductEntity[];
 
   constructor(
     protected serviceRecherche : RechercheService,
@@ -48,16 +50,31 @@ export class BarreDeRechercheComponent  implements OnInit {
      .subscribe(res=>{
        this.totalItem = res?.length;
        console.log(this.totalItem)
-      })
+    })
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value?.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
+  getAllProducts(){
+    this.productService.getAllProducts()
+    . subscribe ((data :ProductEntity [] )=>{
+        this.productList = data;
+        },
+    (error:HttpErrorResponse)=>{
+        alert(error.message)
+        this.toastService.error('Erreur')
+        }
+    );
+}
   rechercher(){
-    this.serviceRecherche.rechercheProduct(this.data).subscribe();
-    console.log(this.data)
+    this.serviceRecherche.rechercheProduct(this.data).subscribe(res=>{
+      this.getAllProducts();
+      this.data = res;
+      console.log(this.data)
+     })
+   
   }
 
 }
