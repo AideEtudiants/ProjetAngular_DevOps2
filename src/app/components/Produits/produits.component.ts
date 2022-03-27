@@ -26,6 +26,8 @@ export class ProduitsComponent implements OnInit {
   public searchTerm !: string;
   myControl = new FormControl();
   options: any=[];
+  optionsByDescription : any=[];
+  optionsByDate: any=[];
   data:any='';
   public p:ProductEntity={
     id: 0,
@@ -71,6 +73,8 @@ export class ProduitsComponent implements OnInit {
 
         this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
             this.options= data.map(p=>p.name);
+            this.optionsByDescription = data.map(p=>p.description);
+            this.optionsByDate = data.map(p=>p.startDate)
             console.log(this.options);
             });
 
@@ -82,8 +86,20 @@ export class ProduitsComponent implements OnInit {
 
    private _filter(value: string): string[] {
          const filterValue = value.toLowerCase();
-         return this.options.filter(option => option.toLowerCase().includes(filterValue));
-         }
+        if(this.options.indexOf(filterValue) > -1){
+            return this.options.filter(option => option.toLowerCase().includes(filterValue));
+        }
+        if (this.optionsByDescription.indexOf(filterValue) > -1){
+            return this.optionsByDescription.filter(option => option.toLowerCase().includes(filterValue));
+        }
+        
+        if (this.optionsByDate.indexOf(filterValue) > -1){
+            return this.optionsByDate.filter(option => option.toLowerCase().includes(filterValue));
+        }
+
+       return [];
+        
+    }
     rechercher(){
     this.serviceRecherche.rechercheProduct(this.data).subscribe(
     (data:ProductEntity[])=>{

@@ -54,7 +54,8 @@ export class BarreDeRechercheComponent  implements OnInit {
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value?.toLowerCase();
+    const filterValue = value.toString().toLowerCase();
+    console.log(this.options.filter(option => option.toLowerCase().includes(filterValue)))
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   getAllProducts(){
@@ -69,11 +70,7 @@ export class BarreDeRechercheComponent  implements OnInit {
     );
 }
   rechercher(){
-    this.serviceRecherche.rechercheProduct(this.data).subscribe(res=>{
-      this.getAllProducts();
-      this.data = res;
-      console.log(this.data)
-     })
+    this.serviceRecherche.rechercheProduct(this.data).subscribe();
    
   }
 
