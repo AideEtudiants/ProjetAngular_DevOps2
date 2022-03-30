@@ -94,7 +94,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CommonModule,
     ToastrModule.forRoot(),// ToastrModule added
-    MatDialogModule,
+    MatDialogModule
 
   ],
   providers: [UserService],
