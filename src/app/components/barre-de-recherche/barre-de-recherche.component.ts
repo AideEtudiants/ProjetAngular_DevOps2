@@ -5,9 +5,11 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { User } from 'src/app/Entity/UserEntity';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { RechercheService } from 'src/app/services/search/rechercheService.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 import { ProductEntity } from '../../Entity/ProductEntity';
 import { ProduitsComponent } from '../Produits/produits.component';
 
@@ -23,6 +25,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   filteredOptions: Observable<string[]>;
   public totalItem : number ;
   productList : ProductEntity[];
+  currentUser: User;
 
   constructor(
     protected serviceRecherche : RechercheService,
@@ -30,7 +33,9 @@ export class BarreDeRechercheComponent  implements OnInit {
     protected cartService : CartService,
     protected productService : ProductService,
     protected toastService : ToastrService,
+    protected authenticationService :AuthenticationService
   ){
+    this.currentUser = this.authenticationService.CurrentUserValue;
   }
 
   ngOnInit() {

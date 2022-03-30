@@ -22,8 +22,8 @@ export class AuthenticationService {
         this.userSubject = new BehaviorSubject<User| null>(JSON.parse(localStorage.getItem('user') || '{}'));
         this.user = this.userSubject.asObservable();
     }
-
-    public get userValue(): User |null {
+     
+    public get CurrentUserValue(): User {
         return this.userSubject.value;
     }
 

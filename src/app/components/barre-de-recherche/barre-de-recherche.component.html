@@ -20,8 +20,8 @@
         </mat-autocomplete>
         <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
       </div>
-      <a href="/profil"><img src="./assets/user.png"></a>
-      <a href="/cart"><img src="./assets/cart.png">
+      <a *ngIf="currentUser != null" href="/profil" ><img src="./assets/user.png"></a>
+      <a *ngIf="currentUser != null" href="/cart" ><img src="./assets/cart.png">
       <!-- <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>  --></a>
     </div>
   </div>
