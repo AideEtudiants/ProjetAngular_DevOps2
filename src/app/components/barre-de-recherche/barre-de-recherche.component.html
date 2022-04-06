@@ -21,9 +21,20 @@
         <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
       </div>
       <div  *ngIf="isConnected">
-        <a  href="/profil" ><img src="./assets/user.png"></a>
-        <a href="/cart" ><img src="./assets/cart.png">
-        <!-- <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>  --></a>
+        <ul id="menu-demo2">
+          <li><a><img src="./assets/user.png"></a>           
+            <ul>
+              <li><a  href="/profil">Mes information</a></li>
+              <li><a (click)="disconnect()">Se deconnecter</a></li>
+            </ul>
+          </li>
+
+        </ul>
+        <div  style="left:66.5%;">
+          <a href="/cart" ><img src="./assets/cart.png"></a>
+        </div>
+        
+        <!-- <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>  -->
       </div>
       <a *ngIf="!isConnected" href="/login"><img  style= "width:50px; margin-right: 10%;"src="./assets/userIcon.jpg" ></a>
 

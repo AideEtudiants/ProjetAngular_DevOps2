@@ -1,5 +1,5 @@
 export class User {
-    id: string;
+    id_user: string;
     lastName: string;
     firstName: string;
     email: string;
@@ -10,5 +10,6 @@ export class User {
     certificateRegist: string;
     photo: string;
     adresse : string
+    postalCode :number;
   }
   

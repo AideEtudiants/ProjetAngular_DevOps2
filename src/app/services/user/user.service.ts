@@ -28,7 +28,7 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-      return this.http.post<User>(`http://localhost:8080/user/login`, {email, password })
+      return this.http.get<User>(`http://localhost:8080/user/login/${email}/${password}`)
         .pipe(map(user => {
             // stocker les détails de l'utilisateur et le jeton jwt dans le stockage local pour que l'utilisateur reste connecté entre les actualisations de la page
             localStorage.setItem('user', JSON.stringify(user));
@@ -41,7 +41,7 @@ export class AuthenticationService {
         // supprimer l'utilisateur du stockage local pour déconnecter l'utilisateur
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
     }
   
   getById(id: number) {

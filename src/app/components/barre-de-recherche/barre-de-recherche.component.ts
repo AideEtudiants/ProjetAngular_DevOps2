@@ -25,7 +25,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   filteredOptions: Observable<string[]>;
   public totalItem : number ;
   productList : ProductEntity[];
-  currentUser: User;
+  // currentUser: User;
 
   constructor(
     protected serviceRecherche : RechercheService,
@@ -33,13 +33,15 @@ export class BarreDeRechercheComponent  implements OnInit {
     protected cartService : CartService,
     protected productService : ProductService,
     protected toastService : ToastrService,
-    protected authenticationService :AuthenticationService
-  ){
-    console.log(this.currentUser)
-    this.currentUser = this.authenticationService.CurrentUserValue;
+    protected authenticationService :AuthenticationService,
+    private userService : AuthenticationService,
+  ){}
+  get currentUser() : any {
+    return this.authenticationService.CurrentUserValue;
   }
   get isConnected() :boolean{
-    return this.currentUser != undefined ? false : true ;
+       console.log(this.currentUser)
+    return this.currentUser == undefined ? false : true ;
   }
 
   ngOnInit() {
@@ -81,6 +83,10 @@ export class BarreDeRechercheComponent  implements OnInit {
   rechercher(){
     this.serviceRecherche.rechercheProduct(this.data).subscribe();
    
+  }
+  disconnect(){
+    this.userService.logout();
+
   }
 
 }
