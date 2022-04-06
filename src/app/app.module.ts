@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'adduser', component: UserFormComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'usersFrm', component: UserFormComponent },
+  { path: 'userForm', component: UserFormComponent },
   { path: 'login', component: UserloginComponent},
   { path: 'newclasse', component: NewclasseComponent},
   { path: 'profil', component: UserProfilComponent},

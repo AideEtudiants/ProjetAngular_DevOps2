@@ -35,7 +35,11 @@ export class BarreDeRechercheComponent  implements OnInit {
     protected toastService : ToastrService,
     protected authenticationService :AuthenticationService
   ){
+    console.log(this.currentUser)
     this.currentUser = this.authenticationService.CurrentUserValue;
+  }
+  get isConnected() :boolean{
+    return this.currentUser != undefined ? false : true ;
   }
 
   ngOnInit() {
