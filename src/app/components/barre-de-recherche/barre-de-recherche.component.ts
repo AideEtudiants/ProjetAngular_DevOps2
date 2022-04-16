@@ -24,6 +24,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   data:any='';
   filteredOptions: Observable<string[]>;
   public totalItem : number ;
+  totalNotif : number ;
   productList : ProductEntity[];
   // currentUser: User;
 

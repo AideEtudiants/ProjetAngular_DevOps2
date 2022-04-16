@@ -2,7 +2,7 @@
   <div class="nav">
     <a href=""><img class= "brand-logo"  src= "./assets/logo.png" alt></a>
     <div class = "nav-items" >
-      <div class="searchbar " style= "margin-left: 500px; margin-top: -1px;" >
+      <div class="searchbar " style= "margin-left: 100px; margin-top: -1px;" >
         <input
         placeholder="Rechercher"
         matInput
@@ -19,19 +19,22 @@
         </mat-option>
         </mat-autocomplete>
         <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
+        <a href="" ><img src="./assets/notif.png">
+          <div style="font-size: 15px;" class="badge bg-danger">{{totalNotif}}</div></a>
       </div>
       <div  *ngIf="isConnected">
+    
         <ul id="menu-demo2">
           <li><a><img src="./assets/user.png"></a>           
             <ul>
-              <li><a  href="/profil">Mes information</a></li>
+              <li><a  href="/profil">Mon compte</a></li>
               <li><a (click)="disconnect()">Se deconnecter</a></li>
             </ul>
           </li>
-
         </ul>
-        <div  style="left:66.5%;">
+          <div  style="padding: 5px 50px 10px 55px;">
           <a href="/cart" ><img src="./assets/cart.png"></a>
+
         </div>
         
         <!-- <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>  -->
