@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 /*en-tete*/
 /* header {
     background: #87c8d1;
@@ -33,7 +34,7 @@ li a:hover:not(.active) {
  .nav-items{
   display: flex;
   align-items: center;
-} 
+}
 .search{
   width: 500px;
   display: flex;
@@ -59,7 +60,7 @@ li a:hover:not(.active) {
   color : #fff;
   text-transform:capitalize ;
   font-size: 15px;
-} 
+}
 .sous{
   display: none;
   box-shadow: 0px 1px 2px rgb(238, 147, 147);
@@ -102,7 +103,7 @@ li a:hover:not(.active) {
   color :#383838;
   opacity :0.5;
   transition: .2s;
-} 
+}
 .nav-items a{
   margin-left: 20px;
 }
@@ -112,12 +113,12 @@ li a:hover:not(.active) {
 .page-wrap {
     background: #fff;
     /* -webkit-box-shadow: 0 0 6px #ccc;
-    -khtml-box-shadow: 0 0 6px #ccc;
+    -html-box-shadow: 0 0 6px #ccc;
     -moz-box-shadow: 0 0 6px #ccc;
     -ms-box-shadow: 0 0 6px #ccc;
     -o-box-shadow: 0 0 6px #ccc;
     box-shadow: 0 0 6px #ccc; */
- 
+
      padding-right: 15px;
      padding-left: 15px;
      margin-right:auto;
@@ -174,8 +175,6 @@ li a:hover:not(.active) {
 
 /*barre de nav pour les cours*/
 
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
-
 /* *{
   margin: 0;
   padding: 0;
@@ -208,7 +207,7 @@ li a {
   position:relative ;
   border-bottom:none;
 
-} 
+}
 
  .wrapper .sidebar{
   padding-right: 10px;
@@ -261,7 +260,7 @@ li a {
 
 .wrapper .main_content .info div{
   margin-bottom: 20px;
-} 
+}
 .card-top {
   position: relative;
   display: flex;

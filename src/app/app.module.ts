@@ -33,8 +33,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AnswerComponent } from './components/answer/answer.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
-import { ChatComponent } from './components/chat/chat.component';
-
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -78,7 +76,7 @@ const routes: Routes = [
     ParticiperForm,
     AnswerComponent,
     ConnexionComponent,
-    ChatComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -96,7 +94,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CommonModule,
     ToastrModule.forRoot(),// ToastrModule added
-    MatDialogModule
+    MatDialogModule,
 
   ],
   providers: [UserService],
