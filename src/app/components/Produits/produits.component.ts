@@ -12,6 +12,7 @@ import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AvailabilityEnum } from 'src/app/enum/availability.enum';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-produits',
@@ -29,6 +30,7 @@ export class ProduitsComponent implements OnInit {
   optionsByDescription : any=[];
   optionsByDate: any=[];
   data:any='';
+  totalNotif : number ;
   public p:ProductEntity={
     id: 0,
     name: '',
@@ -64,13 +66,16 @@ export class ProduitsComponent implements OnInit {
       protected router: Router,
       private serviceRecherche : RechercheService,
       private route: ActivatedRoute,
-      public dialog: MatDialog
+      public dialog: MatDialog,
+      protected authenticationService :AuthenticationService,
     ) {}
-
+    get currentUser() : any {
+        return this.authenticationService?.CurrentUserValue;
+    }
+    
     ngOnInit(): void {
         this.getAllProducts();
         this.totalProductInCart();
-
         this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
             this.options= data.map(p=>p.name);
             this.optionsByDescription = data.map(p=>p.description);
@@ -115,7 +120,7 @@ export class ProduitsComponent implements OnInit {
     this.router.navigate(['/produits']);
     }
     totalProductInCart(){
-      this.cartService.getProducts(4)
+      this.cartService.getProducts(this.currentUser?.id)
        .subscribe(res=>{
          this.totalItem = res?.length;
          console.log(this.totalItem)
@@ -159,7 +164,7 @@ export class ProduitsComponent implements OnInit {
     }
 
     addtocart(produit : ProductEntity){
-        let cart = new Cart(produit.id,4);
+        let cart = new Cart(produit.id,this.currentUser.id);
         console.log(cart)
         this.cartService.addtoCart(cart).subscribe(res=>{
             this.productListSelect =  res;
@@ -220,6 +225,9 @@ export class ProduitsComponent implements OnInit {
         }
 
     }
+    disconnect(){
+        this.authenticationService.logout();
+      }
 }
 
 @Component({

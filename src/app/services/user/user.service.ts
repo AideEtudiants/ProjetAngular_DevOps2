@@ -30,6 +30,7 @@ export class AuthenticationService {
     login(email: string, password: string) {
       return this.http.get<User>(`http://localhost:8080/user/login/${email}/${password}`)
         .pipe(map(user => {
+          console.log(user);
             // stocker les détails de l'utilisateur et le jeton jwt dans le stockage local pour que l'utilisateur reste connecté entre les actualisations de la page
             localStorage.setItem('user', JSON.stringify(user));
             this.userSubject.next(user);

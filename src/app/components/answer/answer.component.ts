@@ -5,7 +5,9 @@ import { ToastrService } from 'ngx-toastr';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { AnswerEntity } from 'src/app/Entity/AnswerEntity';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-answer',
@@ -14,18 +16,27 @@ import { ForumAnswerService } from 'src/app/services/forum/forumService.service'
 })
 export class AnswerComponent implements OnInit {
   forum:ForumEntity;
-  answer:AnswerEntity=new AnswerEntity(null,1,4,'',null);
+  answer:AnswerEntity=new AnswerEntity(null, this.route.snapshot.params.id,this.currentUser.id,'',null);
   idQuestion : number;
   answers : AnswerEntity[]=[];
+  public totalItem : number ;
 
 
   constructor(private router: Router,private rout: Router,
     protected forumService:ForumAnswerService, 
     protected toastService : ToastrService,
-    protected route : ActivatedRoute) { }
+    protected route : ActivatedRoute,
+    public authenticationService :AuthenticationService, 
+    protected cartService : CartService
+    ){}
+    
+    get currentUser() : any {
+      return this.authenticationService.CurrentUserValue;
+    }
 
   ngOnInit(): void {
     this.idQuestion = this.route.snapshot.params.id;
+    this.totalProductInCart();
     console.log(this.idQuestion)
      this.forumService.findForumById(this.idQuestion).subscribe({
       next :(question : ForumEntity)=>{
@@ -35,6 +46,14 @@ export class AnswerComponent implements OnInit {
 
     });
     this.getAnswersById();
+
+  }
+  totalProductInCart(){
+    this.cartService.getProducts(this.currentUser.id)
+     .subscribe(res=>{
+       this.totalItem = res?.length;
+       console.log(this.totalItem)
+      })
   }
   getAnswersById(){
     this.forumService.listAnswerByForum(this.idQuestion).subscribe({
@@ -53,7 +72,6 @@ export class AnswerComponent implements OnInit {
   }
 
   repondre(){
-    console.log(this.answer);
     this.forumService.addAnswerToForum(this.answer)
     .subscribe({
         next :(data)=>{

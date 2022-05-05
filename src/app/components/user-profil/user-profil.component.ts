@@ -5,6 +5,8 @@ import { ProductEntity } from 'src/app/Entity/ProductEntity';
 import { User } from 'src/app/Entity/UserEntity';
 import { UserService } from 'src/app/services/user/user-service.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-user-profil',
@@ -16,23 +18,38 @@ export class UserProfilComponent implements OnInit {
   user: User;
   products: ProductEntity[];
   class: ClassEntity[];
+  public totalItem : number ;
 
   constructor(private userService : UserService,
               private productService : ProductService,
-              private classService : ClassService) {}
+              private classService : ClassService,
+              protected cartService : CartService,
+              protected authenticationService :AuthenticationService,
+            ) {}
+    get currentUser() : any {
+        return this.authenticationService?.CurrentUserValue;
+    }
 
   ngOnInit():void {
-    this.userService.getUserById(4).subscribe(data=>{
+    this.totalProductInCart();
+    this.userService.getUserById(this.currentUser?.id).subscribe(data=>{
       this.user=data;
     });
 
-    this.userService.getProductAdd(4).subscribe(data=>{
+    this.userService.getProductAdd(this.currentUser?.id).subscribe(data=>{
         this.products=data;
     });
 
-    this.userService.getClassByUser(4).subscribe(data=>{
+    this.userService.getClassByUser(this.currentUser?.id).subscribe(data=>{
       this.class=data;
     });
+  }
+  totalProductInCart(){
+    this.cartService.getProducts(this.currentUser?.id)
+    .subscribe(res=>{
+      this.totalItem = res?.length;
+      console.log(this.totalItem)
+      })
   }
 
   deleteProduct(prod: ProductEntity){

@@ -1,37 +1,6 @@
-<nav class = "navbar">
-  <div class="nav">
-    <a href=""><img class= "brand-logo"  src= "./assets/logo.png" alt></a>
-    <div class = "nav-items" >
-      <div class="searchbar " style= "margin-left: 500px; margin-top: -1px;" >
-        <input
-        placeholder="Rechercher"
-        matInput
-        [formControl]="myControl"
-        [matAutocomplete]="auto"
-        [(ngModel)]="data"
-        class = "search-box"
-        >
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option
-          *ngFor="let option of filteredOptions | async"
-          [value]="option">
-          {{option}}
-        </mat-option>
-        </mat-autocomplete>
-        <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
-      </div>
-      <a href="/profil"><img src="./assets/user.png"></a>
-      <a href="/cart"><img src="./assets/cart.png">
-       <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>  </a>
-    </div>
-  </div>
-  <ul class="links-container">
-    <li class= "link-item"><a class= "link" href= ""> ACCUEIL</a></li>
-    <li class= "link-item" ><a class= "link" href= "/produits"> OFFRES</a></li>
-    <li class= "link-item"><a class= "link" href= "cours"> AIDES AUX DEVOIRS</a></li>
-    <li class= "link-item"><a class= "link" href= "/forum"> FORUM</a></li>
-  </ul>
-</nav>
+<app-barre-de-recherche
+[totalItem]="totalItem"
+></app-barre-de-recherche>
 
 <div class="wrapper">
   <div class="sidebar">

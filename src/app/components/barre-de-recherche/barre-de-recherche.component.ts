@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -19,11 +19,11 @@ import { ProduitsComponent } from '../Produits/produits.component';
   styleUrls: ['./barre-de-recherche.component.css']
 })
 export class BarreDeRechercheComponent  implements OnInit {
+  @Input() totalItem?: number;
   myControl = new FormControl();
   options: any=[];
   data:any='';
   filteredOptions: Observable<string[]>;
-  public totalItem : number ;
   totalNotif : number ;
   productList : ProductEntity[];
   // currentUser: User;
@@ -35,17 +35,17 @@ export class BarreDeRechercheComponent  implements OnInit {
     protected productService : ProductService,
     protected toastService : ToastrService,
     protected authenticationService :AuthenticationService,
-    private userService : AuthenticationService,
+   
   ){}
   get currentUser() : any {
-    return this.authenticationService.CurrentUserValue;
+    return this.authenticationService?.CurrentUserValue;
   }
   get isConnected() :boolean{
-       console.log(this.currentUser)
-    return this.currentUser == undefined ? false : true ;
+    return localStorage.getItem('user') == null ? false : true ;
   }
 
   ngOnInit() {
+    console.log(this.isConnected)
     this.totalProductInCart();
     this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
       this.options= data.map(p=>p.name);
@@ -57,8 +57,11 @@ export class BarreDeRechercheComponent  implements OnInit {
    );
 
   }
+  openCart(){
+    this.router.navigate(['/cart'])
+  }
   totalProductInCart(){
-    this.cartService.getProducts(4)
+    this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
        console.log(this.totalItem)
@@ -82,12 +85,10 @@ export class BarreDeRechercheComponent  implements OnInit {
     );
 }
   rechercher(){
-    this.serviceRecherche.rechercheProduct(this.data).subscribe();
-   
+    this.serviceRecherche.rechercheProduct(this.data).subscribe(); 
   }
   disconnect(){
-    this.userService.logout();
-
+    this. authenticationService.logout();
   }
 
 }

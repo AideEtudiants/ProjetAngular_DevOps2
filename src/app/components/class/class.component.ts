@@ -11,6 +11,8 @@ import {ClassUser} from "../../Entity/ClassUser";
 import { GoogleMap } from '@angular/google-maps';
 import { UserService } from 'src/app/services/user/user-service.service';
 import { User } from 'src/app/Entity/UserEntity';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 
 @Component({
@@ -25,23 +27,35 @@ export class classComponent implements OnInit {
   // @ViewChild('map')
   // private mapContainer: ElementRef<HTMLElement>;
   options: any=[];
+  public totalItem : number ;
   data:any=''
   user: User;
   public nbrParticipants : number;
   classActuelle: any;
   userActuel:ClassUser;
-  newclasse:ClassEntity = new ClassEntity(null,4,"","","","");
+  newclasse:ClassEntity = new ClassEntity(null,this.currentUser.id,"","","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog,private userService : UserService) { }
+    public dialog: MatDialog,private userService : UserService,protected cartService : CartService, protected authenticationService :AuthenticationService,
+    ) { }
+    get currentUser() : any {
+      return this.authenticationService?.CurrentUserValue;
+    }
 
   ngOnInit(): void {
     this.getAllclass();
+    this.totalProductInCart();
   }
 
-
+  totalProductInCart(){
+    this.cartService.getProducts(this.currentUser.id)
+     .subscribe(res=>{
+       this.totalItem = res?.length;
+       console.log(this.totalItem)
+      })
+  }
 AjoutClass(){
   const dialogRef = this.dialog.open(NewclasseComponent, {
   width: '800px',
@@ -63,8 +77,6 @@ AjoutClass(){
       });
      this.router.navigate(['/cours']);
     }
-
-
 });
 }
 
@@ -119,9 +131,15 @@ export class ParticiperForm implements OnInit{
     public dialogRef: MatDialogRef<ParticiperForm>,
     public classService : ClassService,
     public userService : UserService,
-    @Inject(MAT_DIALOG_DATA) public data:ClassEntity
+    protected cartService : CartService,
+    @Inject(MAT_DIALOG_DATA) public data:ClassEntity,
  
-  ) {}
+    public authenticationService :AuthenticationService,
+   
+    ){}
+    get currentUser() : any {
+      return this.authenticationService?.CurrentUserValue;
+    }
   ngOnInit(): void {
     this.classService.getClassById(this.data?.id).subscribe((res:ClassEntity) => {
       this.data = res;

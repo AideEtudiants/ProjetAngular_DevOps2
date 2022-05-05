@@ -6,6 +6,8 @@ import { ForumAnswerService } from 'src/app/services/forum/forumService.service'
 import { ToastrService } from 'ngx-toastr';
 import { observable } from 'rxjs';
 import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-forum',
@@ -14,13 +16,27 @@ import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality
 })
 export class ForumComponent implements OnInit {
  ForumList  : ForumEntity [];
+ public totalItem : number ;
  options: any=[];
   data:any='';
 
-  constructor(private router: Router,protected forumservice: ForumAnswerService, protected toastService : ToastrService,) { }
-
+  constructor(private router: Router,protected forumservice: ForumAnswerService, protected toastService : ToastrService,protected cartService : CartService,  public authenticationService :AuthenticationService,
+   
+  ){}
+    get currentUser() : any {
+      return this.authenticationService?.CurrentUserValue;
+    }
+  
   ngOnInit(): void {
+    this.totalProductInCart();
     this.getAllForums();
+  }
+  totalProductInCart(){
+    this.cartService.getProducts(this.currentUser.id)
+     .subscribe(res=>{
+       this.totalItem = res?.length;
+       console.log(this.totalItem)
+      })
   }
 
   onQuiz(){

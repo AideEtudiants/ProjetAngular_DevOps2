@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-accueil',
@@ -10,10 +11,18 @@ export class AccueilComponent implements OnInit {
   
   constructor(
    public  router :Router,
-   public rout:Router
-  ) { }
-
+   public rout:Router,
+   public authenticationService :AuthenticationService, 
+   ){}
+   get currentUser() : any {
+     return this.authenticationService.CurrentUserValue;
+   }
+   get isConnected() :boolean{
+    return localStorage.getItem('user') == null ? false : true ;
+  }
+ 
   ngOnInit(): void {
+    console.log(this.currentUser.id)
   }
   changementDePage() {
     this.router.navigate(['produits']);
