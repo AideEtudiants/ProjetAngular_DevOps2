@@ -2,22 +2,18 @@
 [totalItem]="totalItem"
 ></app-barre-de-recherche>
 <div class="container">
-  <!-- <h1 class="center">Votre profil<span role="img" aria-label="Clipboard"> 📋</span></h1> -->
-  <div> 
-    <div class="container1">
-      <img height="290" style="max-width: 120px;background-position: top left;"  src="{{user.photo}}" alt="">
-  </div>
-
-  <div class="container3">
-    <h1 class="center2">votre profil<span role="img" aria-label="Clipboard"> 📋</span> </h1><br>
-    <ng-container >
-      <p><strong>Nom: </strong>{{user.lastName}}</p>
-      <p><strong>Prenom: </strong>{{user.firstName}}</p>
-      <p><strong>Email: </strong>{{user.email}}</p>
-      <p><strong>Date de naissance: </strong>{{user.birthDate}}</p>
-      <p><strong>Année d'étude: </strong>{{user.studyLevel}}</p>
-      <p><strong>Etablissement: </strong>{{user.establishment}}</p>
-    <p><strong>Certificate: </strong>{{user.certificateRegist}}</p>
+    <div class="container1" style="float:left; margin-left:0%;margin-top: 0px;">
+      <img height="100" style="max-width: 120px;background-position: top left;"  src="{{user.photo}}" alt="">
+  <div class="">
+    <h1 class="center2">Votre profil<span role="img" aria-label="Clipboard">📋</span> </h1>
+    <ng-container>
+      <p style="text-align: left; margin-left:10%"><strong>Nom: </strong>{{user.lastName}}</p>
+      <p style="text-align: left; margin-left:10%"> <strong>Prenom: </strong>{{user.firstName}}</p>
+      <p style="text-align: left; margin-left:10%"><strong>Email: </strong>{{user.email}}</p>
+      <p style="text-align: left; margin-left:10%"><strong>Date de naissance: </strong>{{user.birthDate}}</p>
+      <p style="text-align: left; margin-left:10%"><strong>Année d'étude: </strong>{{user.studyLevel}}</p>
+      <p style="text-align: left; margin-left:10%"><strong>Etablissement: </strong>{{user.establishment}}</p>
+    <p style="text-align: left; margin-left:10%"><strong>Certificate: </strong>{{user.certificateRegist}}</p>
   </ng-container>
    
   </div>
@@ -30,7 +26,7 @@
     <h1 class="center2">Vos offres déposées </h1><br>
     <ng-container *ngFor="let product of products" >
       <p>
-      <!-- <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button> -->
+      <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button> 
         <button class="btn btn-danger" (click)="deleteProduct(product)">Supprimer</button>
 
         <strong> Nom du produit: </strong>{{product.name}}
@@ -43,7 +39,7 @@
     <h1 class="center2">Cours mis en ligne </h1><br>
     <ng-container *ngFor="let clas of class">
       <p>
-        <!-- <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> -->
+        <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> 
         <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
         <strong>Nom du cours: </strong>{{clas.name}}
         <strong> Description: </strong>{{clas.description}}
@@ -53,3 +49,4 @@
   </div>
 
 </div>
+
