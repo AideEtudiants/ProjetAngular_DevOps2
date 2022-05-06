@@ -1,6 +1,6 @@
 export class ClassEntity{
         id: number ; 
-        userId: number = 4;
+        userId: number ;
         name: string;
         description: string;
         startDate: string;

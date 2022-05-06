@@ -1,3 +1,6 @@
+<app-barre-de-recherche
+[totalItem]="totalItem"
+></app-barre-de-recherche>
 <ng-container *ngIf="products.length !=0 && !isEmptyCart">
     <div class="container">
         <div class="card-table">
@@ -19,7 +22,7 @@
                             <th style="width: 12%;">{{produit.prix}}</th>
                             <td style="width: 12%;">{{getCategory(produit.categoryCode)}}</td>
                             <td>
-                                <button (click)="removeItem(produit.id,4)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                <button (click)="removeItem(produit.id,this.currentUser.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                         <tr>

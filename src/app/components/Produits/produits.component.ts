@@ -39,7 +39,7 @@ export class ProduitsComponent implements OnInit {
     statusCode: 0,
     categoryCode: 0,
     availability: 0,
-    idUser :4,
+    idUser :this.currentUser.id,
     startDate : new Date(),
     price : 0
     };
@@ -54,7 +54,7 @@ export class ProduitsComponent implements OnInit {
       statusCode: 0,
       categoryCode: 0,
       availability: 0,
-      idUser :4,
+      idUser :this.currentUser.id,
       startDate : new Date(),
       price : 0
   };

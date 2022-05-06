@@ -1,7 +1,7 @@
 export class Cart{
     id: number ; 
     idProduct: number ; 
-    idUser: number  = 4;
+    idUser: number  ;
     quantity : number;
     constructor(idPrduct : number ,idUser:number){
         this.idProduct =idPrduct ;

@@ -1,7 +1,7 @@
 export class ClassUser{
     id: number; 
-    userId: number = 4;
-    classId: number=1;
+    userId: number ;
+    classId: number;
     constructor(idUser : number ,classId:number){
         this.userId=idUser; 
         this.classId = classId ;

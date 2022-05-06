@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cart } from 'src/app/Entity/cartEntity';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
@@ -14,25 +15,33 @@ export class CartComponent implements OnInit {
   public products : any = [];
   public grandTotal !: number;
   isEmptyCart: boolean = false;
+ public totalItem : number ;
   constructor(
     private cartService : CartService,
     private router: Router,
     private toastService : ToastrService
-  ) { }
+    ,  public authenticationService :AuthenticationService,
+   
+    ){}
+      get currentUser() : any {
+        return this.authenticationService?.CurrentUserValue;
+      }
+    
 
   ngOnInit(): void {
     console.log("hey cart")
     this.getAllProductInCart();
-    this.cartService.getTotalPrice(4)
+    this.cartService.getTotalPrice(this.currentUser.id)
     .subscribe(res=>{
        this.grandTotal =  res;
     });
 
   }
   getAllProductInCart(){
-    this.cartService.getProducts(4)
+    this.cartService.getProducts(this.currentUser.id)
     .subscribe(res=>{
       this.products = res;
+      this.totalItem = res?.length;
       
     });
   }
@@ -50,7 +59,7 @@ export class CartComponent implements OnInit {
   });
   }
   emptycart(){
-    this.cartService.removeAllCart(4)
+    this.cartService.removeAllCart(this.currentUser.id)
     .subscribe({
       next :(data)=>{
         this.isEmptyCart= true;

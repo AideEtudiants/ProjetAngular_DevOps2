@@ -35,7 +35,7 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(["/forum"]);
   }
   totalProductInCart(){
-    this.cartService.getProducts(4)
+    this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
        console.log(this.totalItem)
