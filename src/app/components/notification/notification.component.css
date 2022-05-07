@@ -18,8 +18,8 @@
   position: absolute;
   top: 40px;
   right: 5px;
-  width: 350px;
-  height: 200px;
+  width: auto;
+  height: auto;
   background-color: whitesmoke;
   z-index: 300;
 }
@@ -27,7 +27,7 @@
 .notification-wrapper .notification-header {
   padding: 10px;
   color: #ffffff;
-  background-color: royalblue;
+  background-color: rgb(225, 65, 65);
 }
 
 .notification-wrapper .notification-header .label {
@@ -35,4 +35,22 @@
   width: 90%;
   text-align: center;
   font-weight: 500;
+}
+.notification-content li .notify_data{
+  margin: 0 15px;
+  width: 100px;
+}
+
+.notification-content li .notify_data .title{
+  color: #000;
+  font-weight: 600;
+}
+
+.notification-content li .notify_data .sub_title{
+  color: #000;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
 }

@@ -18,6 +18,7 @@ export class NotifiationComponent implements OnInit {
 constructor() { }
 
   ngOnInit(): void {
+    console.log(this.notificationList)
   }
   openNotification(state: boolean) {
     this.showNotification = state;

@@ -1,43 +1,4 @@
-<!-- 
-<head>
-	<meta charset="UTF-8">
-	<title>Notification Dropdown</title>
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".notification_icon .fa-bell").click(function(){
-				$(".dropdown").toggleClass("active");
-			})
-		});
-	</script>
-</head>
-<body>
-	
-<div class="wrapper">
-	<div class="notification_wrap">
-		<div class="notification_icon">
-			<i class="fas fa-bell">
-        
-      </i>
 
-		</div>
-		<div class="dropdown">
-			<div class="notify_item">
-				<div class="notify_info">
-					<p>Alex commented on<span>Timeline Share</span></p>
-				</div>
-			</div>
-			<div class="notify_item">
-				<div class="notify_info">
-					<p>Ben hur commented on your<span>Timeline Share</span></p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-</body> -->
 <div class = "notification-wrapper">
 	<div class="notification-btn" (click)="openNotification(!showNotification)">
 		<img src="./assets/fi-cnluxt-bell_xs.png">
@@ -49,11 +10,26 @@
 		  <div class="notification-header">
 			<span class="mdi mdi-settings"></span>
 			<span class="label">Notifications</span>
-			<ng-container>
-				
-			</ng-container>
+			
 		  </div>
-	 </div>
+			<ng-container *ngFor="let notif of notificationList" >
+					<ul >
+						<div class="notify_data">
+                        <div class="sub_title">
+                            <p class="dropdown-item" >{{notif.message}}   </p> 
+							<div class="dropdown-divider"></div>
+                        </div>
+						</div>
+		
+						<!-- <p class="dropdown-item waves-effect waves-light" >{{notif.message}}   </p>
+						    -->
+						 
+						
+					</ul>
+	
+				</ng-container>
+		  </div>
+		 
 		
 </div>
 
