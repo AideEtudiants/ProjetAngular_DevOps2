@@ -1,0 +1,38 @@
+.notification-wrapper {
+  position: relative;
+  float: right;
+}
+
+.notification-wrapper .notification-btn {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.notification-wrapper .notification-btn:hover {
+  color: rgb(228, 61, 55);
+  padding: 1px;
+  background-color: #ffffff;
+}
+
+.notification-wrapper .notification-content {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  width: 350px;
+  height: 200px;
+  background-color: whitesmoke;
+  z-index: 300;
+}
+
+.notification-wrapper .notification-header {
+  padding: 10px;
+  color: #ffffff;
+  background-color: royalblue;
+}
+
+.notification-wrapper .notification-header .label {
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  font-weight: 500;
+}

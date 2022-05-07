@@ -172,17 +172,6 @@ export class ProduitsComponent implements OnInit {
 
         });
     }
-
-    // findProductByCategory(idCategorie:number){
-    //     this.productService.findProductByCategory(idCategorie)
-    //     .subscribe({
-    //         next :(data:ProductEntity[])=>{
-    //             this.productFiltredList=data;
-    //             this.filter= true;
-    //         },
-    //         error :()=>  this.toastService.error('Erreur')
-    //     });
-    // }
     filterProductBy(idCategorie:number,idStatus : number,idAvailability : number,idDate : number){
         this.productService.filterProduct(idCategorie,idStatus,idAvailability,idDate)
         .subscribe({

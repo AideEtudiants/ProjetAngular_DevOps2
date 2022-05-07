@@ -5,8 +5,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { NotificationEntity } from 'src/app/Entity/NotificationEntity';
 import { User } from 'src/app/Entity/UserEntity';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { NotificationService } from 'src/app/services/notifications/notification.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { RechercheService } from 'src/app/services/search/rechercheService.service';
 import { AuthenticationService } from 'src/app/services/user/user.service';
@@ -26,6 +28,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   filteredOptions: Observable<string[]>;
   totalNotif : number ;
   productList : ProductEntity[];
+  notificationList: NotificationEntity[];
   // currentUser: User;
 
   constructor(
@@ -35,6 +38,7 @@ export class BarreDeRechercheComponent  implements OnInit {
     protected productService : ProductService,
     protected toastService : ToastrService,
     protected authenticationService :AuthenticationService,
+    protected notificationService : NotificationService
    
   ){}
   get currentUser() : any {
@@ -45,7 +49,10 @@ export class BarreDeRechercheComponent  implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.isConnected)
+    this.notificationService.getAllNotifications(this.currentUser.id).subscribe((data  )=>{
+      this.notificationList = data;
+      this.totalNotif = data.length
+   });
     this.totalProductInCart();
     this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
       this.options= data.map(p=>p.name);

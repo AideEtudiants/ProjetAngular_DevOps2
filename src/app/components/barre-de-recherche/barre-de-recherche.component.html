@@ -27,11 +27,9 @@
 
       <div  *ngIf="isConnected" class ="nav-icon">
         <ul id="menu-demo2">
-          <li><a href="" ><img src="./assets/notif.png">
-            <div style="font-size: 15px;" class="badge bg-danger">{{totalNotif}}
-            </div>
+          <!-- <li><a href="" ><img src="./assets/notif.png">
           </a>
-          </li>
+          </li> -->
           <li><a><img src="./assets/user.png"></a>
             <ul>
               <li><a  style="font-size: 10px" href="/profil"><img src="./assets/compte.png"></a></li>
@@ -44,9 +42,14 @@
                 <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div></a>
             </div>
           </li>
+          <app-notification-component
+          [notificationList]="notificationList"
+          [totalNotif]="totalNotif">
+          </app-notification-component>
         </ul>
       </div>
-      <a *ngIf="!isConnected" href="/login"><img  style= "width:50px; margin-right: 10%;"src="./assets/userIcon-removebg-preview.png" ></a>
+      <a *ngIf="!isConnected" href="/login"><img  style= "width:50px; margin-right: 10%;"src="./assets/userIcon.jpg" ></a>
+   
 
     </div>
   </div>
