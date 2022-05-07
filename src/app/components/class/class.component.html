@@ -4,7 +4,7 @@
 <br>
   <button class="search-btn" style="float:left;" (click) = "AjoutClass()">Programmer un cours</button>
   <div class="container">
-    <button  style="float:left;" (click) = "voirCart()">voir les adresse des cours </button>
+    <button  style="float:left;" (click) = "voirCart()">Localiser les cours</button>
     <div class="row" >
       <ng-container *ngFor="let cours of classList">
          <ul class="list-group" (click)="ParticiperCours(cours.userId,cours.id)">
@@ -15,7 +15,7 @@
                 <!-- <p> {{cours.description}}</p>
                 <p>{{ cours.startDate}} </p> -->
                <!-- <google-map></google-map> -->
-                <a href="">voir l'emplacement </a>
+                <a href="">Voir l'emplacement du cours</a>
               </div>
              <!-- <button style="
              margin-top: 3%;
