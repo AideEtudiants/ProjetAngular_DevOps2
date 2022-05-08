@@ -583,6 +583,7 @@ button {
 /** about section **/
 
 .about {
+  background-color: #f1f3f7;
      background-repeat: no-repeat;
      background-size: 100% 100%;
      padding: 90px 0;
@@ -616,6 +617,7 @@ button {
 /** mobile section **/
 
 .mobile {
+  background-color: #fda29b;
      background-repeat: no-repeat;
      background-size: 100% 100%;
      padding: 90px 0;
@@ -693,7 +695,9 @@ button {
      width: 42px;
      height: 67px;
      bottom: -65px;
+
      background-repeat: no-repeat;
+
 }
 
 .jonu {
