@@ -18,6 +18,7 @@ export class UserProfilComponent implements OnInit {
   user: User;
   products: ProductEntity[];
   class: ClassEntity[];
+  classByUserCreator :ClassEntity[];
   public totalItem : number ;
 
   constructor(private userService : UserService,
@@ -42,6 +43,11 @@ export class UserProfilComponent implements OnInit {
 
     this.userService.getClassByUser(this.currentUser?.id).subscribe(data=>{
       this.class=data;
+    });
+    this.userService.getClassByUserCreator(this.currentUser?.id).subscribe(data=>{
+      console.log(data)
+      this.classByUserCreator=data;
+
     });
   }
   totalProductInCart(){

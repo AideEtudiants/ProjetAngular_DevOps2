@@ -37,6 +37,18 @@
 
   <div class="container3">
     <h1 class="center2">Cours mis en ligne </h1><br>
+    <ng-container *ngFor="let clas of classByUserCreator">
+      <p>
+        <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> 
+        <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
+        <strong>Nom du cours: </strong>{{clas.name}}
+        <strong> Description: </strong>{{clas.description}}
+        <strong>Date de début: </strong>{{clas.startDate}}
+      </p>
+    </ng-container>
+  </div>
+  <div class="container3">
+    <h1 class="center2"> Cours que {{ user.lastName}} a particié  </h1><br>
     <ng-container *ngFor="let clas of class">
       <p>
         <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> 

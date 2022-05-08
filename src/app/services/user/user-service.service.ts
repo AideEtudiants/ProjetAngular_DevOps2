@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { User } from 'src/app/Entity/UserEntity';
+import { ClassEntity } from 'src/app/Entity/classEntity';
 
 @Injectable()
 export class UserService {
@@ -31,7 +32,10 @@ export class UserService {
   return this.http.post<any>("http://localhost:8080/product/listProductByUser",idUser);
   }
 
-  getClassByUser(idUser:number):Observable<any>{
-  return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
+  getClassByUser(idUser:number):Observable<ClassEntity[]>{
+  return this.http.get<any>(`http://localhost:8080/class/listClassByUser/${idUser}`);
+  }
+  getClassByUserCreator(idUser:number):Observable<ClassEntity[]>{
+    return this.http.get<ClassEntity[]>(`http://localhost:8080/class/listClassByUserCreator/${idUser}`);
   }
 }
