@@ -67,11 +67,68 @@
 
  <!DOCTYPE html>
 <html lang="en">
-  
+
    <!-- body -->
    <body class="main-layout">
-     
-      <div id="myCarousel" class="carousel slide banner_main" data-ride="carousel">
+    <style>
+      *{box-sizing: border-box}
+  
+  
+      @keyframes animation_slide {
+  
+      0% {transform:translatex(0)}
+      20%{transform:translatex(0)}
+  
+      25%{transform:translatex(-20%)}
+      45%{transform:translatex(-20%)}
+  
+      50%{transform:translatex(-40%)}
+      70%{transform:translatex(-40%)}
+  
+      75%{transform:translatex(-60%)}
+      95%{transform:translatex(-60%)}
+  
+      100%{transform:translatex(-80%)}
+  
+        }
+  
+      .am img{
+  
+      pointer-events:none;
+      height:100vh;
+      object-fit:contain;
+      float:left;
+      width:20%
+  
+        }
+  
+  
+      .am{
+      position:relative;
+      width:500%; 
+      margin:0;
+      animation:15s animation_slide infinite;
+  
+      }
+      @media (min-width:62.75rem){ 
+  
+      .am img{
+  
+        object-fit:cover
+  
+        }
+  
+        }
+      </style>
+      <div>
+    <figure class="am">
+      <img src= "./assets/livres.jpg" alt>
+      <img src= "./assets/cours.jpg" alt>
+      <img src= "./assets/img4.jpeg" alt>
+      <img src= "./assets/forum.jpg" alt>
+    </figure>
+  </div>
+      <!--<div id="myCarousel" class="carousel slide banner_main" data-ride="carousel">
          <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -117,7 +174,7 @@
                </div>
             </div>
             
-         </div>
+         </div> 
          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
          <span class="sr-only">Previous</span>
@@ -126,7 +183,7 @@
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
          </a>
-      </div>
+      </div>-->
       <!-- end banner -->
       <!-- about -->
       <div id="about"  class="about">
@@ -155,7 +212,7 @@
             <div class="row d_flex">
                <div class="col-md-5">
                   <div class="mobile_img">
-                     <figure><img src=".\images\mobile.png" alt="#"/></figure>
+                     <figure><img src="./assets/mobile.png" alt="#"/></figure>
                   </div>
                </div>
                <div class="col-md-7">
@@ -187,7 +244,7 @@
                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                   </div>
                   <div class="jonu">
-                     <img src=".\images\cross_img.png" alt="#"/>
+                     <img src="./images/cross_img.png" alt="#"/>
                      <h3>Jone due</h3>
                      <strong>(sure there isn't)</strong>
                      <a class="read_more" href="#">Get A Quote</a>
