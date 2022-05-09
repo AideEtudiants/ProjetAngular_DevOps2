@@ -70,7 +70,7 @@
 
    <!-- body -->
    <body class="main-layout">
-    <style>
+   <style>
       *{box-sizing: border-box}
 
       body{
@@ -80,17 +80,17 @@
       @keyframes animation_slide {
   
      
-    0% {transform:translatex(0)}
-    20%{transform:translatex(0)}
+    0% {transform:translatex(-5%)}
+    20%{transform:translatex(-5%)}
 
     25%{transform:translatex(-20%)}
-    45%{transform:translatex(-20%)}
+    45%{transform:translatex(-25%)}
 
     50%{transform:translatex(-40%)}
-    70%{transform:translatex(-40%)}
+    70%{transform:translatex(-45%)}
 
     75%{transform:translatex(-60%)}
-    95%{transform:translatex(-60%)}
+    95%{transform:translatex(-65%)}
 
     100%{transform:translatex(-80%)}
         }
@@ -98,7 +98,7 @@
       .am img{
   
       pointer-events:none;
-      height:100vh;
+      height:60vh;
       object-fit:contain;
       float:left;
       width:20%
@@ -108,12 +108,12 @@
   
       .am{
       position:relative;
-      width:700%; 
-      margin:0;
       animation:15s animation_slide infinite;
+      overflow:hidden;
+      width:900%; 
   
       }
-      @media (min-width:62.75rem){ 
+      @media (min-width:70rem){ 
   
       .am img{
   
@@ -124,12 +124,12 @@
         }
       </style>
       <div class="container">
-    <figure class="am">
-      <img src=  "./assets/img4.jpeg" alt>
+    <figure class="am"> 
+      <img   src= "./assets/livre2.jpg" alt>
+      <img src= "./assets/img4.jpeg" alt>
       <img src= "./assets/aide.jpg" alt>
-      <img src= "./assets/livres.png" alt>
-      <img src= "./assets/aide2.png" alt>
-      <img src= "./assets/forum.jpg" alt>
+      <img src= "./assets/li.jpg" alt>    
+      <img  src= "./assets/forum.jpg" alt>
     </figure>
   </div>
       <!--<div id="myCarousel" class="carousel slide banner_main" data-ride="carousel">
@@ -195,15 +195,15 @@
             <div class="row d_flex">
                <div class="col-md-7">
                   <div class="titlepage">
-                     <h2>Web Development</h2>
+                     <h2>Vente - Echange - Don </h2>
                      <span></span>
                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                     <a class="read_more">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                     <a class="read_more" href= "/produits"> Voir les offres <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   </div>
                </div>
                <div class="col-md-5">
                   <div class="about_img">
-                     <figure><img src="./assets/about_img.png" alt="#"/></figure>
+                     <figure><img src="./assets/aide2.png" alt="#"/></figure>
                   </div>
                </div>
             </div>
@@ -216,15 +216,15 @@
             <div class="row d_flex">
                <div class="col-md-5">
                   <div class="mobile_img">
-                     <figure><img src="./assets/mobile.png" alt="#"/></figure>
+                     <figure><img src="./assets/livre.png" alt="#"/></figure>
                   </div>
                </div>
                <div class="col-md-7">
                   <div class="titlepage">
-                     <h2>Mobile App Development</h2>
+                     <h2>Etudions ensemble ! </h2>
                      <span></span>
                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
-                     <a class="read_more">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                     <a class="read_more" href= "/cours">Je commence <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   </div>
                </div>
             </div>
@@ -244,14 +244,14 @@
            </div>
            <div class="row">
               <div class="col-md-12">
-                 <div class="clients_box">
-                  
+                 <div class="clients_box">               
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                     <style> .clients_box::after{background:url(./assets/cli_cross.png)}</style>
                   </div>
                  <div class="jonu">
-                    <img src="./assets/questuionrep.jpg" alt="#"/>
-                    <a class="read_more" href="#">Acceder</a>
+                    <img style="width: 30%; height: 30%; border-radius: 2%;" src="./assets/questuionrep.jpg" alt="#"/>
+                    <br><br><br>
+                    <a class="read_more" href= "/forum">J'accède au forum</a>
                  </div>
               </div>
            </div>
@@ -264,26 +264,26 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Request A call back</h2>
+                     <h2>Besoin d'aide ? Contacez nous</h2>
                   </div>
                </div>
                <div class="col-md-6 offset-md-3">
                   <form id="request" class="main_form">
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Full Name" type="type" name="Full Name"> 
+                           <input class="contactus" placeholder="Nom et prenom" type="type" name="Nom complet"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number"> 
+                           <input class="contactus" placeholder="Numéro de télephone" type="type" name="Numéro de télephone"> 
                         </div>
                         <div class="col-md-12">
                            <input class="contactus" placeholder="Email" type="type" name="Email">                          
                         </div>
                         <div class="col-md-12">
-                           <textarea class="contactus" placeholder="Message" type="type" Message="Name">Message </textarea>
+                           <textarea class="contactus" placeholder="Votre message" type="type" Message="Name">Message </textarea>
                         </div>
                         <div class="col-sm-12">
-                           <button class="send_btn">Send</button>
+                           <button class="send_btn">Envoyer</button>
                         </div>
                      </div>
                   </form>
@@ -297,36 +297,23 @@
          <div class="footer">
             <div class="container">
                <div class="row border-top">
-                  <div class="col-md-6 padding_bottom1   ">
-                     <h3>Subscribe Now</h3>
-                     <form class="footer_form">
-                        <input class="enter" placeholder="Enter your email" type="type" name="Enter your email">
-                        <button class="submit">submit</button>
-                     </form>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="row">
-                        <div class="col-md-5 offset-md-1 padding_bottom1">
-                           <h3>Links</h3>
-                           <ul class="cont">
-                              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </li>
-                           </ul>
-                        </div>
-                        <div class="col-md-5 offset-md-1">
-                           <h3>Contact us</h3>
-                           <ul class="cont">
-                              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
+                  
+                 
                </div>
             </div>
             <div class="copyright">
                <div class="container">
                   <div class="row">
                      <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. <a href="https://html.design/"> Free Html Templates</a></p>
+                      <a
+                      class="btn btn-link btn-floating btn-lg text-dark m-1"
+                      href="https://github.com/AideEtudiants"
+                      role="button"
+                      data-mdb-ripple-color="dark"
+                    ><i class="fab fa-github"></i
+                    ></a>
+                        <p>© 2022 All Rights Reserved. <a class="text-dark" href="/#">Studenity</a></p>
+
                      </div>
                   </div>
                </div>
