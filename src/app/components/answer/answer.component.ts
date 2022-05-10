@@ -1,8 +1,7 @@
-import { Route } from '@angular/compiler/src/core';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { AnswerEntity } from 'src/app/Entity/AnswerEntity';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -39,6 +38,7 @@ export class AnswerComponent implements OnInit {
     this.totalProductInCart();
      this.forumService.findForumById(this.idQuestion).subscribe({
       next :(question : ForumEntity)=>{
+        console.log(question)
         this.forum = question;      
       },
       error :()=>  this.toastService.error('Erreur lors de laffichage ')
@@ -57,7 +57,6 @@ export class AnswerComponent implements OnInit {
     this.forumService.listAnswerByForum(this.idQuestion).subscribe({
       next :(result : AnswerEntity[])=>{
         this.answers = result;   
-        console.log( this.answers )
       },
       error :()=>  this.toastService.error('Erreur lors de laffichage ')
 
@@ -72,13 +71,11 @@ export class AnswerComponent implements OnInit {
   repondre(){
     this.forumService.addAnswerToForum(this.answer)
     .subscribe({
-        next :(data)=>{
-
-        },
+        next :()=>{ this.ngOnInit();}  ,
         error :()=>  this.toastService.error('Erreur lors de lajout')
 
     });
-    this.rout.navigate(["/forum"]);
+ 
 }
 
   }

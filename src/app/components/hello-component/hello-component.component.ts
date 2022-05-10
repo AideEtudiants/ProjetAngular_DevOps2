@@ -8,19 +8,18 @@ import { HelloService } from '../../services/hello/hello-service.service';
   styleUrls: ['./hello-component.component.css']
 })
 export class HelloComponent implements OnInit {
-  hello : String='' ; 
+  hello : string='' ; 
   constructor(private service : HelloService) { }
 
   ngOnInit(): void {
-    this.service.getMessage().subscribe((data :String )=>{
+    this.service.getMessage().subscribe((data :string )=>{
        this.hello = data;
   
     },
     (error:HttpErrorResponse)=>{
       alert(error.message)
     }
-    );
-    
+    );  
   }
 
 }

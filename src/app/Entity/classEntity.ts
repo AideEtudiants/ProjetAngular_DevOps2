@@ -11,6 +11,7 @@ export class ClassEntity{
         description: string,
         startDate: string,
         address : string){
+                this.id = id;
                 this.description=description;
                 this.userId=userId;
                 this.name=name;

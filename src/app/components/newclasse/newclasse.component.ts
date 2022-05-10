@@ -12,8 +12,7 @@ export class NewclasseComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<NewclasseComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ClassEntity,) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { /* this method 'ngOnInit' is empty but its necessary for the definition of component  */ }
   
   onNoClick(): void {
     this.dialogRef.close();

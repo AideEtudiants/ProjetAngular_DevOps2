@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
 import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
 import { ToastrService } from 'ngx-toastr';
-import { observable } from 'rxjs';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { AuthenticationService } from 'src/app/services/user/user.service';
 
@@ -48,7 +46,6 @@ export class ForumComponent implements OnInit {
     this.forumservice.getAllForums()
       .subscribe((data:ForumEntity [] )=>{
         this.ForumList = data
-        console.log(this.ForumList)
         },
         (error:HttpErrorResponse)=>{
           alert(error.message)

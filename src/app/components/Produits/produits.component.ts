@@ -6,7 +6,7 @@ import { CartService } from '../../services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Cart } from 'src/app/Entity/cartEntity';
 import { RechercheService } from 'src/app/services/rechercheService.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
@@ -65,7 +65,6 @@ export class ProduitsComponent implements OnInit {
       protected cartService : CartService,
       protected router: Router,
       private serviceRecherche : RechercheService,
-      private route: ActivatedRoute,
       public dialog: MatDialog,
       protected authenticationService :AuthenticationService,
     ) {}
@@ -141,7 +140,7 @@ export class ProduitsComponent implements OnInit {
     deleteProduct(idProduct : number){
         this.productService.RemoveProduct(idProduct)
         .subscribe({
-            next :(data)=>{
+            next :()=>{
                 this.getAllProducts();
                 this.toastService.success('Le produit est bien été supprimé')
             },
@@ -152,7 +151,7 @@ export class ProduitsComponent implements OnInit {
     addProduct(product : ProductEntity){
         this.productService.addProduct(product)
         .subscribe({
-            next :(data)=>{
+            next :()=>{
                 this.toastService.success('Le produit est bien été ajouté')
             },
             error :()=>  this.toastService.error('Erreur lors de lajout')
@@ -199,7 +198,7 @@ export class ProduitsComponent implements OnInit {
 
         });
     }
-    public getAvailability(availability : number) : String{
+    public getAvailability(availability : number) : string{
         if(availability == AvailabilityEnum.disponible ){
             return " Disponible";
         }else if (availability == AvailabilityEnum.donne){

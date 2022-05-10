@@ -27,18 +27,15 @@
 
       <div  *ngIf="isConnected" class ="nav-icon">
         <ul id="menu-demo2">
-          <!-- <li><a href="" ><img src="./assets/notif.png">
-          </a>
-          </li> -->
-          <li><a><img src="./assets/user.png"></a>
+          <li><a><img src="./assets/user.png" alt=""></a>
             <ul>
-              <li><a  style="font-size: 10px" href="/profil"><img src="./assets/compte.png"></a></li>
-              <li><a (click)="disconnect()"><img src="./assets/signout.png"></a></li>
+              <li><a  style="font-size: 10px" href="/profil"><img src="./assets/compte.png" alt=""></a></li>
+              <li><a (click)="disconnect()"><img src="./assets/signout.png" alt=""></a></li>
             </ul>
           </li>
           <li>
             <div>
-              <a href="/cart" ><img src="./assets/cart.png">
+              <a href="/cart" ><img src="./assets/cart.png" alt="">
                 <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div></a>
             </div>
           </li>
@@ -48,7 +45,7 @@
           </app-notification-component>
         </ul>
       </div>
-      <a *ngIf="!isConnected" href="/login"><img  style= "width:50px; margin-right: 10%;"src="./assets/userIcon.jpg" ></a>
+      <a *ngIf="!isConnected" href="/login"><img  style= "width:50px; margin-right: 10%;"src="./assets/userIcon.jpg" alt="" ></a>
    
 
     </div>

@@ -6,14 +6,12 @@ import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { NotificationEntity } from 'src/app/Entity/NotificationEntity';
-import { User } from 'src/app/Entity/UserEntity';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { NotificationService } from 'src/app/services/notifications/notification.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { RechercheService } from 'src/app/services/search/rechercheService.service';
 import { AuthenticationService } from 'src/app/services/user/user.service';
 import { ProductEntity } from '../../Entity/ProductEntity';
-import { ProduitsComponent } from '../Produits/produits.component';
 
  @Component({
   selector: 'app-barre-de-recherche',

@@ -1,35 +1,28 @@
 
 <div class = "notification-wrapper">
 	<div class="notification-btn" (click)="openNotification(!showNotification)">
-		<img src="./assets/fi-cnluxt-bell_xs.png">
+		<img src="./assets/fi-cnluxt-bell_xs.png" alt = "">
 		<div style="font-size: 15px;" class="badge bg-danger">{{totalNotif}}</div>
 		
 	</div>
 	<div *ngIf="showNotification" class="notification-content" 
-		  (clickOutside)="openNotification(false)" [exclude]="'.notification-btn'">
-		  <div class="notification-header">
-			<span class="mdi mdi-settings"></span>
-			<span class="label">Notifications</span>
-			
-		  </div>
-			<ng-container *ngFor="let notif of notificationList" >
-					<ul >
-						<div class="notify_data">
-                        <div class="sub_title">
-                            <p class="dropdown-item" >{{notif.message}}   </p> 
-							<div class="dropdown-divider"></div>
-                        </div>
-						</div>
+		(clickOutside)="openNotification(false)" [exclude]="'.notification-btn'">
+		<div class="notification-header">
+		<span class="mdi mdi-settings"></span>
+		<span class="label">Notifications</span>
 		
-						<!-- <p class="dropdown-item waves-effect waves-light" >{{notif.message}}   </p>
-						    -->
-						 
-						
-					</ul>
-	
-				</ng-container>
-		  </div>
-		 
-		
+		</div>
+		<ng-container *ngFor="let notif of notificationList" >
+			<ul >
+				<div class="notify_data">
+					<div class="sub_title">
+						<p class="dropdown-item" >{{notif.message}}   </p> 
+						<div class="dropdown-divider"></div>
+					</div>
+				</div>					
+			</ul>
+		</ng-container>
+    </div>
+		 		
 </div>
 

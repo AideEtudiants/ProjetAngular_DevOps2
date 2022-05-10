@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-/*import { AppRoutingModule } from './app-routing.module';*/
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
@@ -9,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarreDeRechercheComponent } from './components/barre-de-recherche/barre-de-recherche.component';
 import { ForumComponent } from './components/forum/forum.component';
-import { classComponent, ParticiperForm } from './components/class/class.component';
+import { ClassComponent, ParticiperForm } from './components/class/class.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,7 +38,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'produits', component: ProduitsComponent },
-  { path: 'cours', component: classComponent },
+  { path: 'cours', component: ClassComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
@@ -61,7 +60,7 @@ const routes: Routes = [
     BarreDeRechercheComponent,
     AccueilComponent,
     ForumComponent,
-    classComponent,
+    ClassComponent,
     ProduitsComponent,
     UserListComponent,
     UserFormComponent,

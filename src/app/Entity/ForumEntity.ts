@@ -10,6 +10,7 @@ export class ForumEntity{
         description: string,
         idUser: number,
         startDate: Date){
+                this.id = id;
                 this.description=description;
                 this.idUser=idUser;
                 this.title=title;

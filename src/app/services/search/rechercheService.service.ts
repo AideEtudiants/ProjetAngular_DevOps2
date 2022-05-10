@@ -2,7 +2,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -16,15 +16,7 @@ export class RechercheService {
     return this.http.get("http://localhost:8080/product/all");
   }
 
-  rechercheProduct(element:String) : Observable<any>{
-    // if(!element.trim()){
-    //   return of([]);
-    // }
-    // return this.http.get(`http://localhost:8080/${element}`).pipe(
-    //     tap(x => x.length ?
-    //        this.log(`produit trouvé "${element}"`) :
-    //        this.log(`pas de produit de ce nom "${element}"`))
-    //   );
+  rechercheProduct(element:string) : Observable<any>{
     return this.http.post('http://localhost:8080/',element);
   }
 }

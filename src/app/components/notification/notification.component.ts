@@ -1,8 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { NotificationEntity } from 'src/app/Entity/NotificationEntity';
-import { NotificationService } from 'src/app/services/notifications/notification.service';
-import { HelloService } from '../../services/hello/hello-service.service';
 
 @Component({
   selector: 'app-notification-component',
@@ -11,13 +8,12 @@ import { HelloService } from '../../services/hello/hello-service.service';
 })
 export class NotifiationComponent implements OnInit {
  @Input() notificationList : NotificationEntity[] ; 
- @Input() totalNotif : number;;
+ @Input() totalNotif : number;
  
  showNotification: boolean;  
 
-constructor() { }
-
   ngOnInit(): void {
+    // this method 'ngOnInit' is empty but its necessary for the definition of component 
   }
   openNotification(state: boolean) {
     this.showNotification = state;
