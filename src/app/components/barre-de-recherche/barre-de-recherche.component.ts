@@ -56,7 +56,6 @@ export class BarreDeRechercheComponent  implements OnInit {
     this.totalProductInCart();
     this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
       this.options= data.map(p=>p.name);
-      console.log(this.options);
     });
     this.filteredOptions = this.myControl.valueChanges.pipe(
     startWith(''),
@@ -71,13 +70,11 @@ export class BarreDeRechercheComponent  implements OnInit {
     this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
-       console.log(this.totalItem)
     })
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toString().toLowerCase();
-    console.log(this.options.filter(option => option.toLowerCase().includes(filterValue)))
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   getAllProducts(){

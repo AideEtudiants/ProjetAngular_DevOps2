@@ -38,12 +38,10 @@ export class QuestionComponent implements OnInit {
     this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
-       console.log(this.totalItem)
       })
   }
 
   addForum(){
-    console.log(this.forum);
     this.forumService.addForum(this.forum)
     .subscribe({
         next :(data)=>{
@@ -60,7 +58,6 @@ export class QuestionComponent implements OnInit {
     this.forumService.getAllForums()
       .subscribe((data:ForumEntity [] )=>{
         this.ForumList = data
-        console.log(this.ForumList)
         },
         (error:HttpErrorResponse)=>{
           alert(error.message)

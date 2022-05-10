@@ -7,7 +7,7 @@
     <button  style="float:left;" (click) = "voirCart()">Localiser les cours</button>
     <div class="row" >
       <ng-container *ngFor="let cours of classList">
-         <ul class="list-group" (click)="ParticiperCours(cours.userId,cours.id)">
+         <ul class="list-group" (click)="ParticiperCours(this.currentUser.id,cours.id)">
             <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}" style="cursor:pointer">
               <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6DD8_69DUE9kyFEf3r1guXB87Bx6edPMYUg&usqp=CAU" alt="" style="width: 10%; float:left;">
               <div style="float : left;margin-left:25%;">

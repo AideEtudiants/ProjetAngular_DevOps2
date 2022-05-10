@@ -23,21 +23,16 @@ import { AuthenticationService } from 'src/app/services/user/user.service';
 
 export class classComponent implements OnInit {
   classList : ClassEntity[];
-  private map: L.Map;
-  // @ViewChild('map')
-  // private mapContainer: ElementRef<HTMLElement>;
   options: any=[];
   public totalItem : number ;
   data:any=''
   user: User;
   public nbrParticipants : number;
   classActuelle: any;
-  userActuel:ClassUser;
   newclasse:ClassEntity = new ClassEntity(null,this.currentUser.id,"","","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
-    private route: ActivatedRoute,
     public dialog: MatDialog,private userService : UserService,protected cartService : CartService, protected authenticationService :AuthenticationService,
     ) { }
     get currentUser() : any {
@@ -53,7 +48,6 @@ export class classComponent implements OnInit {
     this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
-       console.log(this.totalItem)
       })
   }
 AjoutClass(){
@@ -67,7 +61,6 @@ AjoutClass(){
     if(result!=null){
         this.getAllclass();
         this.newclasse = result;
-        console.log(this.newclasse);
         this.classService.addClass(this.newclasse).subscribe({
           next :(data)=>{
               this.toastService.success('Le class a ete ajouter')
@@ -84,7 +77,6 @@ getAllclass(){
   this.classService.getAllClass()
   .subscribe ((data :ClassEntity [] )=>{
       this.classList = data;
-      console.log(this.classList)
       },
   (error:HttpErrorResponse)=>{
       alert(error.message)
@@ -97,27 +89,20 @@ getAllclass(){
   }
 
   ParticiperCours(idUser:number,idClass:number): void {
-       this.classService.getClassById(idClass).subscribe((data:ClassEntity) => {
-         this.classActuelle = data;
-         console.log(this.classActuelle);
-         this.classService.nbrParticipants(this.classActuelle.id)
-         .subscribe(res=>{
-            this.nbrParticipants = res;
-            console.log( this.nbrParticipants)
-         });
-         }) 
-         console.log(this.classActuelle)
-       //this.userService.getUserById(idUser).subscribe
-       const dialogRef = this.dialog.open(ParticiperForm, {
-         width: '400px',
-         data: this.classActuelle,
+    this.classService.getClassById(idClass).subscribe((data:ClassEntity) => {
+        this.classActuelle = data;
+        this.userService.getUserById(idUser).subscribe
+        const dialogRef = this.dialog.open(ParticiperForm, {
+          width: '400px',
+          data: this.classActuelle,
         }
-       );
-      
-       dialogRef.afterClosed().subscribe(result => {
-         this.classService.addUserToClass(this.userActuel).subscribe()
-       });
-     }
+        );
+        dialogRef.afterClosed().subscribe(result => {
+        let userClass = new ClassUser(idUser,idClass);
+        this.classService.addUserToClass(userClass).subscribe()
+      });
+    })         
+  }
 }
 
 @Component({
@@ -141,16 +126,14 @@ export class ParticiperForm implements OnInit{
       return this.authenticationService?.CurrentUserValue;
     }
   ngOnInit(): void {
+    this.name = this.currentUser.firstName +" "+ this.currentUser.lastName.toUpperCase();
     this.classService.getClassById(this.data?.id).subscribe((res:ClassEntity) => {
       this.data = res;
-      console.log("2"+this.data);
       this.classService.nbrParticipants(this.data?.id)
       .subscribe(res=>{
          this.nbrParticipants = res;
       });
-      this.userService.getNamebyId(this.data?.userId).subscribe(resu=>{
-        this.name = resu;
-     });
+
     }) 
   }
   onNoClick(): void {

@@ -80,7 +80,6 @@ export class ProduitsComponent implements OnInit {
             this.options= data.map(p=>p.name);
             this.optionsByDescription = data.map(p=>p.description);
             this.optionsByDate = data.map(p=>p.startDate)
-            console.log(this.options);
             });
 
         this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -109,7 +108,6 @@ export class ProduitsComponent implements OnInit {
     this.serviceRecherche.rechercheProduct(this.data).subscribe(
     (data:ProductEntity[])=>{
     this.elementTrouve= data;
-    console.log(this.elementTrouve);
     this.gotoElementTrouve();
     this.filter= true;
     }
@@ -123,7 +121,6 @@ export class ProduitsComponent implements OnInit {
       this.cartService.getProducts(this.currentUser?.id)
        .subscribe(res=>{
          this.totalItem = res?.length;
-         console.log(this.totalItem)
         })
     }
     public get getTotalItem(){
@@ -165,7 +162,6 @@ export class ProduitsComponent implements OnInit {
 
     addtocart(produit : ProductEntity){
         let cart = new Cart(produit.id,this.currentUser.id);
-        console.log(cart)
         this.cartService.addtoCart(cart).subscribe(res=>{
             this.productListSelect =  res;
             this.totalProductInCart();
@@ -200,7 +196,6 @@ export class ProduitsComponent implements OnInit {
                 this.productService.addProduct(this.NewProduct).subscribe();
                 this.gotoElementTrouve();
             }
-          console.log(this.NewProduct);
 
         });
     }
@@ -235,7 +230,6 @@ export class ProduitsComponent implements OnInit {
     }
 
     onFileChanged(event) {
-        this.selectedFile = event.target.files[0].name
-        console.log(this.selectedFile);
+        this.selectedFile = event.target.files[0].name;
       }
   }

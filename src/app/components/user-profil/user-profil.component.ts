@@ -45,7 +45,6 @@ export class UserProfilComponent implements OnInit {
       this.class=data;
     });
     this.userService.getClassByUserCreator(this.currentUser?.id).subscribe(data=>{
-      console.log(data)
       this.classByUserCreator=data;
 
     });
@@ -54,7 +53,6 @@ export class UserProfilComponent implements OnInit {
     this.cartService.getProducts(this.currentUser?.id)
     .subscribe(res=>{
       this.totalItem = res?.length;
-      console.log(this.totalItem)
       })
   }
 

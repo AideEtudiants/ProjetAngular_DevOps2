@@ -22,7 +22,6 @@ export class AccueilComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    console.log(this.currentUser.id)
   }
   changementDePage() {
     this.router.navigate(['produits']);

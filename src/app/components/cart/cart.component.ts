@@ -29,7 +29,6 @@ export class CartComponent implements OnInit {
     
 
   ngOnInit(): void {
-    console.log("hey cart")
     this.getAllProductInCart();
     this.cartService.getTotalPrice(this.currentUser.id)
     .subscribe(res=>{
@@ -47,7 +46,6 @@ export class CartComponent implements OnInit {
   }
   removeItem(idProduit : number ,idUser : number){
     let cart  = new Cart(idProduit,idUser)
-    console.log(cart)
     this.cartService.removeCartItem(cart)
     .subscribe({
       next :(data)=>{

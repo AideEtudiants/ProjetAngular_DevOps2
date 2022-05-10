@@ -37,7 +37,6 @@ export class AnswerComponent implements OnInit {
   ngOnInit(): void {
     this.idQuestion = this.route.snapshot.params.id;
     this.totalProductInCart();
-    console.log(this.idQuestion)
      this.forumService.findForumById(this.idQuestion).subscribe({
       next :(question : ForumEntity)=>{
         this.forum = question;      
@@ -52,7 +51,6 @@ export class AnswerComponent implements OnInit {
     this.cartService.getProducts(this.currentUser.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
-       console.log(this.totalItem)
       })
   }
   getAnswersById(){
@@ -75,7 +73,6 @@ export class AnswerComponent implements OnInit {
     this.forumService.addAnswerToForum(this.answer)
     .subscribe({
         next :(data)=>{
-          console.log(data);
 
         },
         error :()=>  this.toastService.error('Erreur lors de lajout')

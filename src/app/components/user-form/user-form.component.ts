@@ -37,7 +37,6 @@ export class UserFormComponent implements OnInit  {
     this.cartService.getProducts(this. currentUser?.id)
      .subscribe(res=>{
        this.totalItem = res?.length;
-       console.log(this.totalItem)
       })
   }
   onSubmit() {

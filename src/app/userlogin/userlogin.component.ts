@@ -19,7 +19,6 @@ export class UserloginComponent implements OnInit {
       this.router.navigate(['/']);
     },
     (err : HttpErrorResponse)=>{
-      console.log(err)
       this.isLoginError = true;
     });
   }
