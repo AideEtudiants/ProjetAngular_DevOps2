@@ -82,7 +82,7 @@ getAllclass(){
   );
 }
   voirCart(){
-    this.router.navigate(['/localisationDesCours']);
+    this.router.navigate(['/localisationCours']);
   }
 
   ParticiperCours(idUser:number,idClass:number,): void {

@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'profil', component: UserProfilComponent },
   { path: 'updateProduit/:id', component: UpdateProduitComponent },
   { path: 'answer/:id', component: AnswerComponent },
-  { path: 'localisationDesCours', component:MapComponent},
+  { path: 'localisationCours', component:MapComponent},
 
 ];
 
