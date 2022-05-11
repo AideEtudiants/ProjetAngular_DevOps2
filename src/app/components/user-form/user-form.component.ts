@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/Entity/UserEntity';
-import { CartService } from 'src/app/services/cart/cart.service';
-import { UserService } from 'src/app/services/user/user-service.service';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { User } from '../../Entity/UserEntity';
+import { CartService } from '../../services/cart/cart.service';
+import { UserService } from '../../services/user/user-service.service';
+import { AuthenticationService } from '../../services/user/user.service';
 
 
 @Component({

@@ -2,10 +2,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ForumEntity } from 'src/app/Entity/ForumEntity';
-import { CartService } from 'src/app/services/cart/cart.service';
-import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { ForumEntity } from '../../Entity/ForumEntity';
+import { CartService } from '../../services/cart/cart.service';
+import { ForumAnswerService } from '../../services/forum/forumService.service';
+import { AuthenticationService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-question',

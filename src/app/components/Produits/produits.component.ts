@@ -3,16 +3,16 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ProductEntity } from '../../Entity/ProductEntity';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
-import { ProductService } from 'src/app/services/product/product.service';
-import { Cart } from 'src/app/Entity/cartEntity';
-import { RechercheService } from 'src/app/services/rechercheService.service';
+import { ProductService } from '../../services/product/product.service';
+import { Cart } from '../../Entity/cartEntity';
+import { RechercheService } from '../../services/rechercheService.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { AvailabilityEnum } from 'src/app/enum/availability.enum';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { AvailabilityEnum } from '../../enum/availability.enum';
+import { AuthenticationService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-produits',

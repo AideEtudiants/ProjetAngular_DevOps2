@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { NotificationEntity } from 'src/app/Entity/NotificationEntity';
-import { CartService } from 'src/app/services/cart/cart.service';
-import { NotificationService } from 'src/app/services/notifications/notification.service';
-import { ProductService } from 'src/app/services/product/product.service';
-import { RechercheService } from 'src/app/services/search/rechercheService.service';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { NotificationEntity } from '../../Entity/NotificationEntity';
+import { CartService } from '../../services/cart/cart.service';
+import { NotificationService } from '../../services/notifications/notification.service';
+import { ProductService } from '../../services/product/product.service';
+import { RechercheService } from '../../services/search/rechercheService.service';
+import { AuthenticationService } from '../../services/user/user.service';
 import { ProductEntity } from '../../Entity/ProductEntity';
 
  @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Cart } from 'src/app/Entity/cartEntity';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { Cart } from '../../Entity/cartEntity';
+import { AuthenticationService } from '../../services/user/user.service';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
