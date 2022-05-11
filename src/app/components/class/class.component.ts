@@ -58,6 +58,7 @@ AjoutClass(){
 
     if(result!=null){
         this.newclasse = result;
+        this.newclasse.userId = this. currentUser.id;
         this.classService.addClass(this.newclasse).subscribe({
         next :()=>{
           this.getAllclass();
