@@ -1,4 +1,7 @@
-<h1>{{ title }}</h1>
+<app-barre-de-recherche
+[totalItem]="totalItem"
+></app-barre-de-recherche>
+<h1 style="text-align: center ; ">{{ title }}</h1>
 
   <agm-map [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false">
     <agm-marker *ngFor="let l of data" [latitude]="l.lat" [longitude]="l.lng"></agm-marker>

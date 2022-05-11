@@ -114,7 +114,7 @@
 
 .map-container {
     height: 200px;
-    width: 100%
+    width: 500%
 }
 .card img:hover {
   transition: 0.3s ease-in-out;

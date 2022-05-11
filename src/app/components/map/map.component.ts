@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
 
 export interface Adresse {
   lat:number;
@@ -27,11 +29,26 @@ export class MapComponent implements OnInit {
   lat:number = 48.88510403963977
   lng:number = 2.104852108775351
   data=adresse
+  products: any;
+  totalItem: number;
 
-  constructor() { }
+  constructor(  private cartService : CartService,
+    public authenticationService :AuthenticationService,
+    ) { }
+    get currentUser() : any {
+      return this.authenticationService?.CurrentUserValue;
+    }
 
   ngOnInit(): void {
-    
+    this.getAllProductInCart();
+  }
+  getAllProductInCart(){
+    this.cartService.getProducts(this.currentUser.id)
+    .subscribe(res=>{
+      this.products = res;
+      this.totalItem = res?.length;
+      
+    });
   }
  
 }
