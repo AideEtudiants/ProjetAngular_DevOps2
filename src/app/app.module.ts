@@ -34,6 +34,8 @@ import { AnswerComponent } from './components/answer/answer.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { NotifiationComponent } from './components/notification/notification.component';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { MapComponent } from './components/map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -76,7 +78,8 @@ const routes: Routes = [
     ParticiperForm,
     AnswerComponent,
     ConnexionComponent,
-    NotifiationComponent
+    NotifiationComponent,
+    MapComponent
 
   ],
   imports: [
@@ -96,7 +99,10 @@ const routes: Routes = [
     CommonModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAuYO5F-4zzcL1jWSb5I-lVTp2lrDEpBns'
+    })
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
