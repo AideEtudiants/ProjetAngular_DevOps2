@@ -118,12 +118,12 @@
   display:inline-block;
   position:relative;
   border-radius:0px 0px 0 0;
-  width:50px;
+  width:80px;
   }
   #menu-demo2 ul li{
   display:flex;;
   border-radius:0;
-  width:100px;
+  width:200px;
   height:40px;
   border-bottom:1px solid #B0B5B4;
   border-top:1px solid #B0B5B4;

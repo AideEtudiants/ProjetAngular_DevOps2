@@ -21,7 +21,7 @@ export class AnswerComponent implements OnInit {
   public totalItem : number ;
 
 
-  constructor(private router: Router,private rout: Router,
+  constructor(private router: Router,
     protected forumService:ForumAnswerService, 
     protected toastService : ToastrService,
     protected route : ActivatedRoute,
@@ -37,8 +37,7 @@ export class AnswerComponent implements OnInit {
     this.idQuestion = this.route.snapshot.params.id;
     this.totalProductInCart();
      this.forumService.findForumById(this.idQuestion).subscribe({
-      next :(question : ForumEntity)=>{
-        console.log(question)
+      next :(question : any)=>{
         this.forum = question;      
       },
       error :()=>  this.toastService.error('Erreur lors de laffichage ')

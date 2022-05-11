@@ -47,9 +47,8 @@ export class ForumAnswerService {
     return this.http.post<any>("http://localhost:8080/forum/addAnswerToForum",answer);
   }
 
-  findForumById(idforum:number):Observable<ForumEntity>{
-    return this.http.get<ForumEntity>(`http://localhost:8080/forum/${idforum}`);
+  findForumById(idforum:number):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/forum/detail/${idforum}`);
   }
-
   
 }
