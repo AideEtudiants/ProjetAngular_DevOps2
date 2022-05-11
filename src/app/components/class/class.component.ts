@@ -3,15 +3,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 import {  Router } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { ClassService } from 'src/app/services/class/classService.service';
-import { ClassEntity } from 'src/app/Entity/classEntity';
+import { ClassService } from '../../services/class/classService.service';
+import { ClassEntity } from '../../Entity/classEntity';
 import { NewclasseComponent } from '../newclasse/newclasse.component';
 import {ClassUser} from "../../Entity/ClassUser";
-import { GoogleMap } from '@angular/google-maps';
-import { UserService } from 'src/app/services/user/user-service.service';
-import { User } from 'src/app/Entity/UserEntity';
-import { CartService } from 'src/app/services/cart/cart.service';
-import { AuthenticationService } from 'src/app/services/user/user.service';
+import { UserService } from '../../services/user/user-service.service';
+import { User } from '../../Entity/UserEntity';
+import { CartService } from '../../services/cart/cart.service';
+import { AuthenticationService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-class',
@@ -83,7 +82,7 @@ getAllclass(){
   );
 }
   voirCart(){
-    this.dialog.open(GoogleMap);
+    this.router.navigate(['/localisationDesCours']);
   }
 
   ParticiperCours(idUser:number,idClass:number,): void {
