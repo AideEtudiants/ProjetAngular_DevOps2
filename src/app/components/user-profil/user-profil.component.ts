@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ClassEntity } from '../../Entity/classEntity';
-import { ClassService } from '../../services/class/classService.service';
-import { ProductEntity } from '../../Entity/ProductEntity';
-import { User } from '../../Entity/UserEntity';
-import { UserService } from '../../services/user/user-service.service';
-import { ProductService } from '../../services/product/product.service';
-import { CartService } from '../../services/cart/cart.service';
-import { AuthenticationService } from '../../services/user/user.service';
+import { ClassEntity } from 'src/app/Entity/classEntity';
+import { ClassService } from 'src/app/services/class/classService.service';
+import { ProductEntity } from 'src/app/Entity/ProductEntity';
+import { User } from 'src/app/Entity/UserEntity';
+import { UserService } from 'src/app/services/user/user-service.service';
+import { ProductService } from 'src/app/services/product/product.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { AuthenticationService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profil',
@@ -26,6 +27,7 @@ export class UserProfilComponent implements OnInit {
               private classService : ClassService,
               protected cartService : CartService,
               protected authenticationService :AuthenticationService,
+              protected router: Router,
             ) {}
     get currentUser() : any {
         return this.authenticationService?.CurrentUserValue;
@@ -76,7 +78,10 @@ export class UserProfilComponent implements OnInit {
           this.classService.deleteClass(clas.id);
         }
       }
-    }
-
+  }
+    
+listeOffre(){
+  this.router.navigate(['/produits']);
 }
 
+}

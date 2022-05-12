@@ -1,7 +1,10 @@
-<app-barre-de-recherche
-[totalItem]="totalItem"
-></app-barre-de-recherche>
-<div class="container">
+<meta charset="utf-8" />
+<div><app-barre-de-recherche
+  [totalItem]="totalItem"
+  ></app-barre-de-recherche>
+  </div>
+  <br>
+<!-- <div class="container">
     <div class="container1" style="float:left; margin-left:0%;margin-top: 0px;">
       <img height="100" style="max-width: 120px;background-position: top left;"  src="{{user.photo}}" alt="">
   <div class="">
@@ -60,5 +63,149 @@
     </ng-container>
   </div>
 
+
+</div> -->
+
+
+
+<!--
+Reflux Template
+https://templatemo.com/tm-531-reflux
+-->
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> -->
+
+    <!-- Additional CSS Files -->
+    <!-- <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" /> -->
+
+  
+  <!--
+  Reflux Template
+  https://templatemo.com/tm-531-reflux
+  -->
+  <body>
+    <div id="page-wraper" >
+      <!-- Sidebar Menu -->
+      <style> #page-wraper{background:url(./assets/page-bg.jpg) no-repeat center center fixed;}</style>
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="{{user.photo}}" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>{{user.lastName}} {{user.firstName}} <br></h4>
+              <span>{{user.birthDate}}<br></span>
+              <span>{{user.studyLevel}} {{user.establishment}}<br></span>
+              <span>{{user.email}}</span>
+        </div>
+
+
+        <nav class="main-nav" role="navigation">
+        <ul class="main-menu">
+
+                <li><a href="#section1">Mes offres</a></li>
+                <li><a href="#section2">Mes cours publiés</a></li>
+                <li><a href="#section3">Les cours auxquels je participe</a></li>
+                
+            </ul>
+            </nav>
+        
+      </div>
 </div>
+</div>
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <div class="line-dec"></div>
+            <H1><span
+              >Trouvez l'ensemble de vos activités réunies !</span
+            ></H1><br><br><br><br>
+          <div class="left-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-image">
+                  <img src="./assets/Ecole.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="right-text">
+                  <h4>Mes offres</h4>
+                  <p>
+                    Sur ce menu, retrouvez la liste des toutes les offres auxquelles vous 
+                    avez publié et mis à la dispositions des étudiants
+                  </p>
+                  <div class="white-button">
+                    <a (click)="listeOffre()">Voir la liste</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="left-text">
+                  <h4>Mes cours publiés</h4>
+                  <p>
+                    Sur ce menu, retrouvez la liste des toutes les cours que vous 
+                    avez publié et mis à la dispositions des étudiants
+                  </p>
+                  <div class="white-button">
+                    <a href="#">Voir la liste</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="right-image">
+                  <img src="./assets/Courspub.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </section>
+
+      <section class="section about-me" data-section="section1">        
+        <div class="left-image-post">
+        <div class="row">
+          <div class="col-md-6"><br><br><br><br>
+            <div class="left-image">
+              <img src="./assets/Participation.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-text">
+              <h4>Les cours auxquels je participe</h4>
+              <p>
+                Sur ce menu, retrouvez la liste des toutes les cours où vous êtes inscrtit pour y participer
+              </p>
+              <div class="white-button">
+                <a href="#">Voir la liste</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </section>
+      
+  </div>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+  
+  
+  </body>
+
 
