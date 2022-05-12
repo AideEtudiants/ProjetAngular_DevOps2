@@ -88,7 +88,6 @@ https://templatemo.com/tm-531-reflux
   <body>
     <div id="page-wraper" >
       <!-- Sidebar Menu -->
-      <style> #page-wraper{background:url(./assets/page-bg.jpg) no-repeat center center fixed;}</style>
       <div class="responsive-nav">
         <i class="fa fa-bars" id="menu-toggle"></i>
         <div id="menu" class="menu">
@@ -98,12 +97,11 @@ https://templatemo.com/tm-531-reflux
             </div>
             <div class="author-content">
               <h4>{{user.lastName}} {{user.firstName}} <br></h4>
-              <span>{{user.birthDate}}<br></span>
-              <span>{{user.studyLevel}} {{user.establishment}}<br></span>
+              <span>{{user.birthDate}}</span><br>
+              <span>{{user.studyLevel}} {{user.establishment}}</span><br>
               <span>{{user.email}}</span>
-        </div>
-
-
+    
+</div>
         <nav class="main-nav" role="navigation">
         <ul class="main-menu">
 
@@ -117,7 +115,89 @@ https://templatemo.com/tm-531-reflux
       </div>
 </div>
 </div>
-      <section class="section about-me" data-section="section1">
+<!--on test-->
+<div class="main-wrapper" >
+  <section class="cta-section theme-bg-light py-5">
+    <div class="container text-center">
+      <h2 class="heading">Trouvez l'ensemble de vos activités réunies !</h2>
+    </div><!--//container-->
+  </section>
+
+  <section class="blog-list px-3 py-5 p-md-5">
+    
+    <div class="container">
+      <div class="item mb-5">
+        <h2 class="heading">Mes offres </h2>
+        <div class="media" *ngFor="let product of products">
+          <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{product.image}}" alt="image">
+          <div >
+            <br><br>
+          <div class="media-body">
+            <h3 class="title mb-1">{{product.name}}</h3>
+
+            <div class="meta mb-1"><span class="date">Publié le </span><span class="time"> {{product.startDate}}</span></div>
+            <div class="intro">{{product.description}}</div>
+            <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button> 
+            <button class="btn btn-danger" (click)="deleteProduct(product)">Supprimer</button>
+          </div><!--//media-body-->
+        </div>
+        </div><!--//media-->
+      </div><!--//item-->
+    
+    </div>
+  </section>
+  
+  
+
+  <section class="blog-list px-3 py-5 p-md-5">
+    <div class="container">
+      <div class="item mb-5">
+        <h2 class="heading">Mes cours publiés</h2>
+        <div class="media" *ngFor="let clas of classByUserCreator">
+          <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="./assets/blog-post-thumb-5.jpg" alt="image">
+          <div >
+            <br><br>
+          <div class="media-body">
+            <h3 class="title mb-1">{{clas.name}}</h3>
+
+            <div class="meta mb-1"><span class="date">Publié le </span><span class="time"> {{clas.startDate}}</span></div>
+            <div class="intro">{{clas.description}}</div>
+            <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> 
+            <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
+          </div><!--//media-body-->
+        </div>
+        </div><!--//media-->
+      </div><!--//item-->
+    
+    </div>
+  </section>
+
+  <section class="blog-list px-3 py-5 p-md-5">
+    <div class="container">
+      <div class="item mb-5">
+        
+        <h2 class="heading">Les cours auxquels je participe</h2>
+        <br>
+        <div class="media" *ngFor="let clas of class">
+          <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="./assets/Participation.jpg"alt="image">
+            <br><br>
+          <div class="media-body">
+            <h3 class="title mb-1">{{clas.name}}</h3>
+
+            <div class="meta mb-1"><span class="date">Publié le </span><span class="time"> {{clas.startDate}}</span></div>
+            <div class="intro">{{clas.description}}</div>
+            <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> 
+            <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
+          </div><!--//media-body-->
+        </div>
+        </div><!--//media-->
+      </div><!--//item-->
+    
+  </section>
+
+
+  <!--existant-->
+      <!-- <section class="section about-me" data-section="section1">
         <div class="container">
           <div class="section-heading">
             <div class="line-dec"></div>
@@ -144,7 +224,7 @@ https://templatemo.com/tm-531-reflux
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
           <div class="right-image-post">
             <div class="row">
               <div class="col-md-6">
@@ -169,9 +249,9 @@ https://templatemo.com/tm-531-reflux
         </div>
         
         </div>
-      </section>
+      </section>-->
 
-      <section class="section about-me" data-section="section1">        
+      <!-- <section class="section about-me" data-section="section1">        
         <div class="left-image-post">
         <div class="row">
           <div class="col-md-6"><br><br><br><br>
@@ -192,7 +272,7 @@ https://templatemo.com/tm-531-reflux
           </div>
         </div>
       </div>
-        </section>
+        </section> -->
       
   </div>
     <!-- Scripts -->
@@ -205,7 +285,7 @@ https://templatemo.com/tm-531-reflux
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/js/custom.js"></script>
   
-  
+    </div>
   </body>
 
 
